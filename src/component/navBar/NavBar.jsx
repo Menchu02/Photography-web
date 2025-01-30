@@ -51,7 +51,7 @@ export default function NavBar() {
                     className='nav-link active text-blanck'
                     aria-current='page'
                   >
-                    Inicio
+                    Inicioooooo
                   </a>
                 </Link>
               </li>
