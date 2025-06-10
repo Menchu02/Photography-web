@@ -1,0 +1,43 @@
+/* carousel.css */
+.carousel-fullscreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: white;
+  position: relative;
+}
+
+.carousel-image {
+  max-width: 90%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 20px; /* redondeo personalizado */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* sombra opcional */
+  display: block;
+  margin: 0 auto;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  font-size: 1.5rem;
+  background: rgba(0, 0, 0, 0.5);
+  color: black;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.carousel-arrow.left {
+  left: 20px;
+}
+
+.carousel-arrow.right {
+  right: 20px;
+}
+.container {
+  margin-top: 40px;
+}

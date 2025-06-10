@@ -1,0 +1,25 @@
+/* src/component/Modelo/modelo.css */
+
+/* --- ESTA ES LA REGLA CLAVE PARA LA ALTURA UNIFORME --- */
+.image-grid-thumbnail {
+  width: 100%;
+  height: 170px; /* <--- VALOR CLAVE: Ajusta esta altura para el tamaño deseado */
+  object-fit: cover; /* <--- VALOR CLAVE: Recorta la imagen para que cubra el espacio */
+  display: block; /* Asegura que la imagen se comporte como un bloque */
+  /* Si la altura aún no se aplica, puedes probar con !important (aunque úsalo con precaución): */
+  /* height: 80px !important; */
+}
+
+/* Otros estilos para el margen del contenedor o entre fotos si los usas */
+
+/* Si usas la opción de 'g-X' de Bootstrap para el margen entre fotos: */
+/* Asegúrate de que las reglas de .no-gutters estén eliminadas o comentadas si no las usas. */
+
+/* Si estás añadiendo margen al contenedor principal: */
+.gallery-container-margin {
+  /* Si usas una clase personalizada para el contenedor */
+  padding: 15px; /* Ajusta según tu preferencia */
+}
+.container-photo {
+  margin-top: 60px !important;
+}

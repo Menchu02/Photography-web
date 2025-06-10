@@ -20,7 +20,14 @@ export default function Carousel() {
   ];
 
   return (
-    <div style={{ width: '100%', margin: '0px', objectFit: 'cover' }}>
+    <div
+      style={{
+        width: '100%',
+        hidth: '100%',
+        margin: '0px',
+        objectFit: 'cover',
+      }}
+    >
       <ReactImageGallery
         items={images}
         showPlayButton={false}

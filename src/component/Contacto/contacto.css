@@ -1,0 +1,206 @@
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  align-self: flex-start; /* lo deja alineado a la izquierda */
+  margin: 20px;
+  color: white; /* o el color que quieras */
+}
+/* --- ESTILOS GENERALES DE LA BARRA DE NAVEGACIÓN --- */
+/* HE CAMBIADO TODO A NEGRO PARA QUE SE VEA EN NEGRO LAS LETRAS */
+a {
+  border-bottom: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important; /* Si fuera una sombra de texto rara */
+}
+
+/* También para los nav-links, por si acaso */
+.nav-link {
+  border-bottom: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+.navbar {
+  background-color: transparent !important; /* Asegura que la barra de navegación sea transparente */
+  position: fixed; /* Fija la barra de navegación en la parte superior de la ventana */
+  top: 0;
+  left: 0;
+  width: 100%; /* Asegúrate de que la barra de navegación se extienda por todo el ancho */
+  z-index: 10; /* Establece un z-index alto para la barra de navegación */
+}
+
+.navbar-collapse {
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* --- CAMBIO CLAVE PARA OCUPAR TODO EL ANCHO --- */
+.navbar-nav {
+  font-size: 30px;
+  /* font-weight: bold; */
+  width: 100%; /* Hace que navbar-nav ocupe todo el ancho de su padre */
+  justify-content: space-between !important; /* Distribuye los elementos uniformemente con espacio alrededor de ellos */
+  /* Alternativa: justify-content: space-between !important;
+     Si quieres que "Home", "Works" y "Contacto" estén exactamente en los extremos y luego espaciados uniformemente,
+     pero 'space-around' suele ser bueno para una distribución general. */
+}
+
+/* --- SOLUCIÓN ULTRA ESPECÍFICA PARA QUITAR EL SUBRAYADO Y COLOR AZUL DE "HOME" Y "CONTACTO" --- */
+/* Apuntamos directamente a los enlaces nav-link dentro del nav-item y navbar-nav */
+.navbar-collapse .navbar-nav .nav-item .nav-link {
+  text-decoration: none !important; /* FUERZA QUITAR EL SUBRAYADO */
+  color: black !important; /* FUERZA EL COLOR BLANCO */
+}
+
+/* También para los estados hover y focus */
+.navbar-collapse .navbar-nav .nav-item .nav-link:hover,
+.navbar-collapse .navbar-nav .nav-item .nav-link:focus {
+  text-decoration: none !important; /* QUITA EL SUBRAYADO EN HOVER Y FOCUS */
+  color: black !important; /* MANTIENE EL COLOR BLANCO EN HOVER Y FOCUS */
+}
+
+/* Aseguramos el color blanco para el elemento 'Home' que tiene 'active' */
+.navbar-collapse .navbar-nav .nav-item .nav-link.active {
+  color: black !important;
+}
+
+/* Por si acaso, si 'text-blanck' añade un color que lo sobreescribe, lo forzamos a blanco */
+.navbar-collapse .navbar-nav .nav-item .nav-link.text-blanck {
+  color: black !important;
+}
+
+/* --- ESTILOS PARA HACER TOTALMENTE TRANSPARENTE EL ACORDEÓN "WORKS" --- */
+/* Estilos para el elemento del acordeón transparente (contenedor del "Works") */
+.accordion-transparent {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+/* Estilos para el botón del acordeón (el texto "Works" que se pincha) */
+.accordion-transparent .accordion-button {
+  background-color: transparent !important; /* Fondo completamente transparente */
+  border: none !important; /* Quita los bordes */
+  box-shadow: none !important; /* Elimina cualquier sombra */
+  color: black !important; /* Asegura que el color del texto sea blanco */
+  padding: 0 !important; /* Elimina el relleno (espacio alrededor del texto) */
+  font-size: 30px !important; /* Mantiene el tamaño de fuente deseado */
+  /* font-weight: bold !important;  */
+  text-align: left !important; /* Alinea el texto a la izquierda */
+  outline: none !important; /* Elimina el contorno que aparece al enfocar (clic o tab) */
+}
+
+/* Estilos para el botón del acordeón cuando está expandido (abierto) */
+.accordion-transparent .accordion-button:not(.collapsed) {
+  background-color: transparent !important; /* Mantiene transparente cuando está abierto */
+  color: black !important;
+  box-shadow: none !important;
+}
+
+/* Estilos para el icono de la flecha del botón del acordeón */
+.accordion-transparent .accordion-button::after {
+  filter: brightness(0) invert(1) !important; /* Hace que la flecha sea blanca */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
+}
+
+/* Estilos para el contenido dentro del cuerpo del acordeón (el desplegable) */
+.accordion-transparent .accordion-body {
+  background-color: transparent !important; /* Fondo completamente transparente */
+  border: none !important; /* Quita los bordes */
+  box-shadow: none !important; /* Elimina cualquier sombra */
+}
+
+/* Estilos para los párrafos y enlaces dentro del cuerpo del acordeón (Modelo, Style life, Influences) */
+.accordion-transparent .accordion-body p,
+.accordion-transparent .accordion-body a {
+  color: black !important; /* Asegura que el color del texto sea blanco */
+  text-decoration: none !important; /* Elimina el subrayado de los enlaces */
+}
+
+/* --- OTROS ESTILOS RELACIONADOS --- */
+.carousel-inner {
+  overflow: hidden;
+  height: 100vh;
+}
+
+.img-carousel {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.linksStyle {
+  text-decoration: none; /* Asegura que los enlaces no tengan subrayado por defecto */
+}
+
+.text {
+  color: black !important; /* Asegura que los elementos de texto específicos sean blancos */
+}
+
+.accordion-header {
+  background-color: transparent !important; /* Asegura que el encabezado del acordeón sea transparente */
+  border-radius: 0 !important; /* Elimina cualquier borde redondeado */
+}
+.carousel-container {
+  position: relative;
+}
+
+.overlay-text {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 10;
+}
+
+.overlay-text h1 {
+  color: black;
+  font-size: clamp(4rem, 6vw, 35rem);
+
+  margin: 0;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+.animated-title {
+  opacity: 0;
+  transform: scale(0.8);
+  animation: fadeZoomIn 1.2s ease-out 1s forwards;
+}
+
+@keyframes fadeZoomIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.navbar-nav .nav-link,
+.navbar-brand,
+.dropdown-toggle {
+  font-size: 1.2rem !important; /* Tamaño base para pantallas grandes */
+}
+
+@media (max-width: 768px) {
+  .navbar-nav .nav-link,
+  .navbar-brand,
+  .dropdown-toggle {
+    font-size: 1rem !important; /* Tablets */
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-nav .nav-link,
+  .navbar-brand,
+  .dropdown-toggle {
+    font-size: 0.9rem !important; /* Móviles */
+  }
+}
+
+@media (max-width: 400px) {
+  .navbar-nav .nav-link,
+  .navbar-brand,
+  .dropdown-toggle {
+    font-size: 0.8rem !important; /* Móviles muy pequeños */
+  }
+}
