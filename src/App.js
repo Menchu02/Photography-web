@@ -26,7 +26,8 @@ function App() {
         <Route path='/stylelife' element={<StyleLife />}></Route>
 
         <Route path='/influences' element={<Influences />}></Route>
-        <Route path='/galeria/:index' element={<Galeria />} />
+        {/* <Route path='/galeria/:index' element={<Galeria />} /> */}
+        <Route path='/galeria/:category/:index' element={<Galeria />} />
       </Routes>
 
       {/* <Carousel /> */}

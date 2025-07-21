@@ -7,13 +7,22 @@
   background: white;
   position: relative;
 }
+.gallery-index-button {
+  position: absolute;
+  top: 5px; /* Ajusta la distancia desde arriba */
+  right: 10px; /* Ajusta la distancia desde la derecha */
+  z-index: 10; /* Asegura que esté por encima de la imagen y las flechas */
+  background-color: white;
+  color: black;
+  border: none;
+}
 
 .carousel-image {
   max-width: 90%;
   max-height: 90vh;
   object-fit: contain;
-  border-radius: 20px; /* redondeo personalizado */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* sombra opcional */
+  /* border-radius: 20px; 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);  */
   display: block;
   margin: 0 auto;
 }
@@ -40,4 +49,7 @@
 }
 .container {
   margin-top: 40px;
+}
+.carousel-fullscreen {
+  margin-bottom: 20px;
 }

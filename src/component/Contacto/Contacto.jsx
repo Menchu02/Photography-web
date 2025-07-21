@@ -10,45 +10,48 @@ export default function Contacto() {
 
           <ul className='navbar-nav d-flex flex-row flex-wrap justify-content-center align-items-center w-100 gap-3'>
             <li className='nav-item'>
-              <Link className='nav-link text-black' to='/'>
-                Home
+              <Link className='nav-link text-black menu-item-text' to='/'>
+                HOME
               </Link>
             </li>
 
             {/* Dropdown en lugar de accordion */}
             <li className='nav-item dropdown'>
               <a
-                className='nav-link dropdown-toggle text-black'
+                className='nav-link dropdown-toggle text-black menu-item-text'
                 href='#'
                 id='navbarDropdown'
                 role='button'
                 data-bs-toggle='dropdown'
                 aria-expanded='false'
               >
-                Works
+                WORK
               </a>
               <ul className='dropdown-menu'>
                 <li>
                   <Link className='dropdown-item' to='/modelo'>
-                    Modelo
+                    MODELO
                   </Link>
                 </li>
                 <li>
                   <Link className='dropdown-item' to='/stylelife'>
-                    Style life
+                    STYLE LIFE
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link className='dropdown-item' to='/influences'>
                     Influences
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </li>
 
             <li className='nav-item'>
-              <Link className='nav-link text-black' to='/contacto'>
-                Contacto
+              <Link
+                className='nav-link text-black menu-item-text'
+                to='/contacto'
+              >
+                CONTACT
               </Link>
             </li>
           </ul>

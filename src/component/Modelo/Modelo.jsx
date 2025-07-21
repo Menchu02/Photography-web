@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './modelo.css';
+import GaleriaMasonry from '../GaleriaMasonry/GaleriaMasonry';
 
 export default function Modelo() {
   const imageCount = 152;
@@ -17,56 +18,61 @@ export default function Modelo() {
 
           <ul className='navbar-nav d-flex flex-row flex-wrap justify-content-center align-items-center w-100 gap-3'>
             <li className='nav-item'>
-              <Link className='nav-link text-black' to='/'>
-                Home
+              <Link className='nav-link text-black menu-item-text' to='/'>
+                HOME
               </Link>
             </li>
 
             {/* Dropdown en lugar de accordion */}
             <li className='nav-item dropdown'>
               <a
-                className='nav-link dropdown-toggle text-black'
+                className='nav-link dropdown-toggle text-black menu-item-text'
                 href='#'
                 id='navbarDropdown'
                 role='button'
                 data-bs-toggle='dropdown'
                 aria-expanded='false'
               >
-                Works
+                WORK
               </a>
-              <ul className='dropdown-menu'>
+              <ul className='dropdown-menu dropdown-dark-text'>
                 <li>
                   <Link className='dropdown-item' to='/modelo'>
-                    Modelo
+                    MODELO
                   </Link>
                 </li>
                 <li>
                   <Link className='dropdown-item' to='/stylelife'>
-                    Style life
+                    STYLE LIFE
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link className='dropdown-item' to='/influences'>
                     Influences
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </li>
 
             <li className='nav-item'>
-              <Link className='nav-link text-black' to='/contacto'>
-                Contacto
+              <Link
+                className='nav-link text-black menu-item-text'
+                to='/contacto'
+              >
+                CONTACT
               </Link>
             </li>
           </ul>
         </div>
       </nav>
       {/* GALERÍA */}
-      <div className='container-fluid p-3'>
+      <GaleriaMasonry images={images} category='modelo' />
+
+      {/* <div className='container-fluid p-3'>
         <div className=' container-photo row g-4'>
           {images.map((src, index) => (
             <div className='col-6 col-md-4 col-lg-2 ' key={index}>
-              <Link to={`/galeria/${index}`}>
+              <Link to={`/galeria/modelo/${index}`}>
                 <img
                   src={src}
                   alt={`modelo ${index + 1}`}
@@ -77,7 +83,7 @@ export default function Modelo() {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

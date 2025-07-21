@@ -5,6 +5,21 @@ a {
   box-shadow: none !important;
   text-shadow: none !important; /* Si fuera una sombra de texto rara */
 }
+.nav-item.dropdown .dropdown-menu {
+  background-color: transparent !important; /* Fondo completamente transparente */
+  border: none !important; /* Elimina cualquier borde */
+  box-shadow: none !important; /* Elimina cualquier sombra */
+  /* Asegura que el color de fondo no se resetea al abrirse */
+  --bs-dropdown-bg: transparent !important;
+  --bs-dropdown-border-color: transparent !important;
+  --bs-dropdown-box-shadow: none !important;
+}
+
+/* Estilos para los elementos individuales del desplegable (Modelo, Style life, Influences) */
+.nav-item.dropdown .dropdown-menu .dropdown-item {
+  background-color: transparent !important; /* Asegura que cada item también sea transparente */
+  /* color: white !important; */
+}
 
 /* También para los nav-links, por si acaso */
 .nav-link {
@@ -59,6 +74,10 @@ a {
 /* Por si acaso, si 'text-blanck' añade un color que lo sobreescribe, lo forzamos a blanco */
 .navbar-collapse .navbar-nav .nav-item .nav-link.text-blanck {
   color: white !important;
+}
+.menu-item-text {
+  font-size: 20px;
+  font-weight: 500;
 }
 
 /* --- ESTILOS PARA HACER TOTALMENTE TRANSPARENTE EL ACORDEÓN "WORKS" --- */
@@ -140,22 +159,51 @@ a {
 
 .overlay-text {
   position: absolute;
-  bottom: 20px;
+  bottom: 8px;
   left: 20px;
   z-index: 10;
 }
 
 .overlay-text h1 {
   color: white;
-  font-size: clamp(4rem, 6vw, 35rem);
-
+  font-size: 9.5rem;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  letter-spacing: -0.07em;
   margin: 0;
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
 }
 .animated-title {
   opacity: 0;
   transform: scale(0.8);
   animation: fadeZoomIn 1.2s ease-out 1s forwards;
+
+  /* Puedes cambiar esto si quieres un peso más ligero (ej. 300) o más grueso (ej. 700) */
+}
+.navbar-dark .dropdown-menu .dropdown-item {
+  color: white !important;
+}
+.navbar-dark .dropdown-menu .dropdown-item:hover,
+.navbar-dark .dropdown-menu .dropdown-item:focus {
+  color: white !important;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.2
+  ) !important; /* Un ligero fondo semitransparente blanco al pasar el ratón */
+}
+
+/* Asegura que el texto también sea blanco al pasar el ratón o enfocar en el navbar principal */
+.navbar-dark .dropdown-menu .dropdown-item:hover,
+.navbar-dark .dropdown-menu .dropdown-item:focus {
+  color: white !important;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.2
+  ) !important; /* Un ligero fondo semitransparente blanco al pasar el ratón */
 }
 
 @keyframes fadeZoomIn {
