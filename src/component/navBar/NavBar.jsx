@@ -98,9 +98,11 @@ export default function NavBar() {
           showNav={false}
           showBullets={false}
           autoPlay={true}
+          slideDuration={500} // CAMBIO PARA LA PRUEBA: Aumentado a 3000ms (3 segundos)
+          slideInterval={2000}
         />
         <div className='overlay-text'>
-          <h1 className='animated-title'>Viridiana Morandini</h1>
+          <h1 className='animated-title'>Jesús Coll</h1>
         </div>
       </div>
     </div>

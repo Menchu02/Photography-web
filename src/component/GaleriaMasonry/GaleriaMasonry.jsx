@@ -5,10 +5,11 @@ import './GaleriaMasonry.css';
 
 export default function GaleriaMasonry({ images, category }) {
   const breakpointColumnsObj = {
-    default: 5,
-    1100: 4,
-    800: 3,
-    500: 2,
+    default: 7, // desktop grande
+    1200: 6, // laptop
+    992: 5, // tablet horizontal
+    768: 4, // tablet vertical / móvil grande
+    480: 3,
   };
   return (
     <div className='masonry-container'>

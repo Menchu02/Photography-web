@@ -21,8 +21,6 @@
   max-width: 90%;
   max-height: 90vh;
   object-fit: contain;
-  /* border-radius: 20px; 
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);  */
   display: block;
   margin: 0 auto;
 }
@@ -48,7 +46,7 @@
   right: 20px;
 }
 .container {
-  margin-top: 40px;
+  /* margin-top: 40px; */
 }
 .carousel-fullscreen {
   margin-bottom: 20px;
