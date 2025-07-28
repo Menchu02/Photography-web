@@ -1,43 +1,76 @@
 /* --- ESTILOS GENERALES DE LA BARRA DE NAVEGACIÓN --- */
-/* HE CAMBIADO TODO A NEGRO PARA QUE SE VEA EN NEGRO LAS LETRAS */
+
+/* Asegura que los enlaces no tengan subrayado ni sombras inesperadas por defecto */
 a {
   border-bottom: none !important;
   box-shadow: none !important;
-  text-shadow: none !important; /* Si fuera una sombra de texto rara */
+  text-shadow: none !important;
 }
-.image-gallery-slides {
-  /* Usamos una función cubic-bezier para una desaceleración aún más extrema al final. */
-  /* Esta curva hace que la animación comience muy rápido y se detenga casi de golpe al final. */
-  transition-timing-function: cubic-bezier(0, 0, 0.04, 1) !important;
+
+/* --- SOLUCIÓN PARA EL DESPLAZAMIENTO DEL MENÚ DESPLEGABLE --- */
+/* 1. Asegura que el elemento padre del desplegable (.nav-item.dropdown) tenga posicionamiento relativo.
+   Esto es crucial para que el menú desplegable (.dropdown-menu) se posicione de forma absoluta dentro de él. */
+.navbar-nav .nav-item.dropdown {
+  position: relative;
+  /* Elimina cualquier margen o padding vertical en este contenedor que pudiera causar el salto */
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
 }
-.nav-item.dropdown .dropdown-menu {
-  background-color: transparent !important; /* Fondo completamente transparente */
-  border: none !important; /* Elimina cualquier borde */
-  box-shadow: none !important; /* Elimina cualquier sombra */
-  /* Asegura que el color de fondo no se resetea al abrirse */
+
+/* 2. Aplica posicionamiento absoluto al menú desplegable para que flote.
+   Esto lo saca del flujo normal del documento, evitando que empuje otros elementos. */
+.navbar-nav .nav-item.dropdown .dropdown-menu {
+  position: absolute !important; /* Fuerza el posicionamiento absoluto */
+  top: 100%; /* Coloca el borde superior del menú desplegable justo debajo del enlace "WORK" */
+  left: 50%; /* Alinea el centro del desplegable con el centro del enlace "WORK" */
+  transform: translateX(-50%); /* Ajuste para centrarlo perfectamente */
+  z-index: 1050; /* Asegura que el menú siempre esté por encima de otros elementos */
+
+  /* Estilos para la transparencia y bordes del menú desplegable */
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
   --bs-dropdown-bg: transparent !important;
   --bs-dropdown-border-color: transparent !important;
   --bs-dropdown-box-shadow: none !important;
+
+  /* Pequeño ajuste de padding-top para que no esté pegado al enlace "WORK" */
+  padding-top: 5px;
+  /* Puedes ajustar el min-width si las opciones del menú son más anchas que "WORK" */
+  /* min-width: 150px; */
 }
 
-/* Estilos para los elementos individuales del desplegable (Modelo, Style life, Influences) */
+/* Estilos para los elementos individuales del desplegable (Modelo, Style life) */
 .nav-item.dropdown .dropdown-menu .dropdown-item {
   background-color: transparent !important; /* Asegura que cada item también sea transparente */
-  /* color: white !important; */
+  color: white !important; /* Asegura que el texto sea blanco */
 }
 
-/* También para los nav-links, por si acaso */
+/* Estilos al pasar el ratón o enfocar en los elementos del desplegable */
+.navbar-dark .dropdown-menu .dropdown-item:hover,
+.navbar-dark .dropdown-menu .dropdown-item:focus {
+  color: white !important;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.2
+  ) !important; /* Un ligero fondo semitransparente blanco al pasar el ratón */
+}
+
+/* --- ESTILOS DE LA BARRA DE NAVEGACIÓN PRINCIPAL --- */
 .nav-link {
   border-bottom: none !important;
   box-shadow: none !important;
   text-shadow: none !important;
 }
+
 .navbar {
-  background-color: transparent !important; /* Asegura que la barra de navegación sea transparente */
-  position: fixed; /* Fija la barra de navegación en la parte superior de la ventana */
+  background-color: transparent !important; /* Barra de navegación transparente */
+  position: fixed; /* Fija la barra en la parte superior */
   top: 0;
   left: 0;
-  width: 100%; /* Asegúrate de que la barra de navegación se extienda por todo el ancho */
+  width: 100%; /* Asegura que la barra ocupe todo el ancho */
   z-index: 10; /* Establece un z-index alto para la barra de navegación */
 }
 
@@ -46,93 +79,87 @@ a {
   justify-content: space-between;
 }
 
-/* --- CAMBIO CLAVE PARA OCUPAR TODO EL ANCHO --- */
 .navbar-nav {
   font-size: 30px;
-  /* font-weight: bold; */
   width: 100%; /* Hace que navbar-nav ocupe todo el ancho de su padre */
-  justify-content: space-between !important; /* Distribuye los elementos uniformemente con espacio alrededor de ellos */
-  /* Alternativa: justify-content: space-between !important;
-     Si quieres que "Home", "Works" y "Contacto" estén exactamente en los extremos y luego espaciados uniformemente,
-     pero 'space-around' suele ser bueno para una distribución general. */
+  justify-content: space-between !important; /* Distribuye los elementos uniformemente */
 }
 
-/* --- SOLUCIÓN ULTRA ESPECÍFICA PARA QUITAR EL SUBRAYADO Y COLOR AZUL DE "HOME" Y "CONTACTO" --- */
-/* Apuntamos directamente a los enlaces nav-link dentro del nav-item y navbar-nav */
+/* Estilos para los enlaces principales (HOME, WORK, CONTACT) */
 .navbar-collapse .navbar-nav .nav-item .nav-link {
-  text-decoration: none !important; /* FUERZA QUITAR EL SUBRAYADO */
-  color: white !important; /* FUERZA EL COLOR BLANCO */
+  text-decoration: none !important; /* Fuerza quitar el subrayado */
+  color: white !important; /* Fuerza el color blanco */
 }
 
-/* También para los estados hover y focus */
+/* Estilos para los enlaces principales en estado hover y focus */
 .navbar-collapse .navbar-nav .nav-item .nav-link:hover,
 .navbar-collapse .navbar-nav .nav-item .nav-link:focus {
-  text-decoration: none !important; /* QUITA EL SUBRAYADO EN HOVER Y FOCUS */
-  color: white !important; /* MANTIENE EL COLOR BLANCO EN HOVER Y FOCUS */
+  text-decoration: none !important;
+  color: white !important;
 }
 
-/* Aseguramos el color blanco para el elemento 'Home' que tiene 'active' */
+/* Asegura el color blanco para el elemento 'Home' si tiene la clase 'active' */
 .navbar-collapse .navbar-nav .nav-item .nav-link.active {
   color: white !important;
 }
 
-/* Por si acaso, si 'text-blanck' añade un color que lo sobreescribe, lo forzamos a blanco */
+/* Por si acaso, si 'text-blanck' añade un color que lo sobreescribe */
 .navbar-collapse .navbar-nav .nav-item .nav-link.text-blanck {
   color: white !important;
 }
+
 .menu-item-text {
   font-size: 20px;
   font-weight: bold;
 }
 
-/* --- ESTILOS PARA HACER TOTALMENTE TRANSPARENTE EL ACORDEÓN "WORKS" --- */
-/* Estilos para el elemento del acordeón transparente (contenedor del "Works") */
+/* --- ESTILOS PARA HACER TOTALMENTE TRANSPARENTE EL ACORDEÓN "WORKS" (si fuera un acordeón en vez de dropdown) --- */
+/* Aunque tu código indica un dropdown, estas reglas son para un acordeón transparente, las mantengo por si las usas */
 .accordion-transparent {
   background-color: transparent !important;
   border: none !important;
 }
 
-/* Estilos para el botón del acordeón (el texto "Works" que se pincha) */
 .accordion-transparent .accordion-button {
-  background-color: transparent !important; /* Fondo completamente transparente */
-  border: none !important; /* Quita los bordes */
-  box-shadow: none !important; /* Elimina cualquier sombra */
-  color: white !important; /* Asegura que el color del texto sea blanco */
-  padding: 0 !important; /* Elimina el relleno (espacio alrededor del texto) */
-  font-size: 30px !important; /* Mantiene el tamaño de fuente deseado */
-  /* font-weight: bold !important;  */
-  text-align: left !important; /* Alinea el texto a la izquierda */
-  outline: none !important; /* Elimina el contorno que aparece al enfocar (clic o tab) */
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: white !important;
+  padding: 0 !important;
+  font-size: 30px !important;
+  text-align: left !important;
+  outline: none !important;
 }
 
-/* Estilos para el botón del acordeón cuando está expandido (abierto) */
 .accordion-transparent .accordion-button:not(.collapsed) {
-  background-color: transparent !important; /* Mantiene transparente cuando está abierto */
+  background-color: transparent !important;
   color: white !important;
   box-shadow: none !important;
 }
 
-/* Estilos para el icono de la flecha del botón del acordeón */
 .accordion-transparent .accordion-button::after {
-  filter: brightness(0) invert(1) !important; /* Hace que la flecha sea blanca */
+  filter: brightness(0) invert(1) !important;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
 }
 
-/* Estilos para el contenido dentro del cuerpo del acordeón (el desplegable) */
 .accordion-transparent .accordion-body {
-  background-color: transparent !important; /* Fondo completamente transparente */
-  border: none !important; /* Quita los bordes */
-  box-shadow: none !important; /* Elimina cualquier sombra */
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
-/* Estilos para los párrafos y enlaces dentro del cuerpo del acordeón (Modelo, Style life, Influences) */
 .accordion-transparent .accordion-body p,
 .accordion-transparent .accordion-body a {
-  color: white !important; /* Asegura que el color del texto sea blanco */
-  text-decoration: none !important; /* Elimina el subrayado de los enlaces */
+  color: white !important;
+  text-decoration: none !important;
 }
 
-/* --- OTROS ESTILOS RELACIONADOS --- */
+.accordion-header {
+  background-color: transparent !important;
+  border-radius: 0 !important;
+}
+
+/* --- ESTILOS DEL CARRUSEL (ReactImageGallery) --- */
 .carousel-inner {
   overflow: hidden;
   height: 100vh;
@@ -147,17 +174,13 @@ a {
 }
 
 .linksStyle {
-  text-decoration: none; /* Asegura que los enlaces no tengan subrayado por defecto */
+  text-decoration: none;
 }
 
 .text {
-  color: white !important; /* Asegura que los elementos de texto específicos sean blancos */
+  color: white !important;
 }
 
-.accordion-header {
-  background-color: transparent !important; /* Asegura que el encabezado del acordeón sea transparente */
-  border-radius: 0 !important; /* Elimina cualquier borde redondeado */
-}
 .carousel-container {
   position: relative;
 }
@@ -178,37 +201,11 @@ a {
   margin: 0;
   line-height: 1;
 }
+
 .animated-title {
   opacity: 0;
   transform: scale(0.8);
   animation: fadeZoomIn 1.2s ease-out 1s forwards;
-
-  /* Puedes cambiar esto si quieres un peso más ligero (ej. 300) o más grueso (ej. 700) */
-}
-.navbar-dark .dropdown-menu .dropdown-item {
-  color: white !important;
-}
-.navbar-dark .dropdown-menu .dropdown-item:hover,
-.navbar-dark .dropdown-menu .dropdown-item:focus {
-  color: white !important;
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.2
-  ) !important; /* Un ligero fondo semitransparente blanco al pasar el ratón */
-}
-
-/* Asegura que el texto también sea blanco al pasar el ratón o enfocar en el navbar principal */
-.navbar-dark .dropdown-menu .dropdown-item:hover,
-.navbar-dark .dropdown-menu .dropdown-item:focus {
-  color: white !important;
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.2
-  ) !important; /* Un ligero fondo semitransparente blanco al pasar el ratón */
 }
 
 @keyframes fadeZoomIn {
@@ -218,20 +215,19 @@ a {
   }
 }
 
+/* Media queries para el texto del overlay */
 @media screen and (max-width: 992px) {
   .overlay-text h1 {
     font-size: 6rem;
   }
 }
 
-/* Móvil grande (iPhone X, etc.) */
 @media screen and (max-width: 768px) {
   .overlay-text h1 {
     font-size: 4.5rem;
   }
 }
 
-/* Móvil pequeño (≤480px) */
 @media screen and (max-width: 480px) {
   .overlay-text h1 {
     font-size: 3rem;

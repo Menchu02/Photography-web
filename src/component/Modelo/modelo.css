@@ -1,4 +1,5 @@
 /* src/component/Modelo/modelo.css */
+
 /* --- NUEVOS ESTILOS PARA EL TEXTO NEGRO DEL DESPLEGABLE --- */
 /* Asegura que el texto dentro del desplegable sea negro */
 body {
@@ -42,3 +43,10 @@ body {
 .container-photo {
   margin-top: 60px !important;
 }
+
+/*
+   Asegúrate de que no queden estilos residuales del desplazamiento,
+   como .gallery-container, ni modificaciones específicas de z-index
+   para .navbar o .dropdown-menu que hubiéramos añadido para ese fin.
+   Si añadiste algo más allá de lo que tenías al principio, bórralo.
+*/

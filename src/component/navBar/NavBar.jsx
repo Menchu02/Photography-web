@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState, useEffect, useRef } from 'react';
 import photo1 from '../img/14.jpg';
 import photo2 from '../img/23.jpg';
 import photo3 from '../img/87.jpg';
@@ -98,8 +99,9 @@ export default function NavBar() {
           showNav={false}
           showBullets={false}
           autoPlay={true}
-          slideDuration={500} // CAMBIO PARA LA PRUEBA: Aumentado a 3000ms (3 segundos)
+          slideDuration={500}
           slideInterval={2000}
+          additionalClass='mi-carrusel-personalizado'
         />
         <div className='overlay-text'>
           <h1 className='animated-title'>Jesús Coll</h1>

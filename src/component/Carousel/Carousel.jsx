@@ -28,14 +28,14 @@ export default function Carousel() {
         objectFit: 'cover',
       }}
     >
-      <ReactImageGallery
+      {/* <ReactImageGallery
         items={images}
         showPlayButton={false}
         showThumbnails={false}
         showNav={false}
         showBullets={true}
         autoPlay={true}
-      />
+      /> */}
     </div>
   );
 }

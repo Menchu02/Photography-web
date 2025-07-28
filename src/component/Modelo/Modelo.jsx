@@ -66,6 +66,7 @@ export default function Modelo() {
         </div>
       </nav>
       {/* GALERÍA */}
+      {/* Tu componente GaleriaMasonry ya no estará envuelto por el div con 'gallery-container' y 'ref' */}
       <GaleriaMasonry images={images} category='modelo' />
 
       {/* <div className='container-fluid p-3'>

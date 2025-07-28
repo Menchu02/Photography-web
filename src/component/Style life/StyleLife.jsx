@@ -161,7 +161,7 @@ export default function StyleLife() {
         <div className=' container-photo row g-4'>
           {images.map((src, index) => (
             <div className='col-6 col-md-4 col-lg-2 ' key={index}>
-            
+
               <Link to={`/galeria/stylelife/${index}`}>
                 <img
                   src={src}

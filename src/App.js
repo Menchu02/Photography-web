@@ -12,6 +12,8 @@ import StyleLife from './component/Style life/StyleLife';
 import Modelo from './component/Modelo/Modelo';
 import Influences from './component/Influences/Influences';
 import Galeria from './component/Galeria/Galeria';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 function App() {
   return (
