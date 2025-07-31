@@ -1,52 +1,59 @@
 /* src/component/Modelo/modelo.css */
 
-/* --- NUEVOS ESTILOS PARA EL TEXTO NEGRO DEL DESPLEGABLE --- */
-/* Asegura que el texto dentro del desplegable sea negro */
 body {
   font-family: 'Roboto', sans-serif !important;
   font-weight: bold;
 }
+
 .menu-item-text {
   font-size: 20px;
   font-weight: 500;
+  /* color: black !important;  <-- Descomentar si 'text-black' no es suficiente */
 }
 
-.dropdown-dark-text .dropdown-item {
-  color: black !important;
+/* --- ESTILOS DEL DESPLEGABLE "WORK" (FONDO NEGRO, LETRAS BLANCAS) --- */
+
+/* MUY IMPORTANTE: Asegúrate de que el desplegable esté siempre visible cuando se renderiza (si no está oculto por defecto por Bootstrap) */
+/* La clase 'show' de Bootstrap lo hace visible, pero si hay otras reglas que lo ocultan, esta lo fuerza */
+.dropdown-menu.show {
+  display: block !important; /* Fuerza la visibilidad del desplegable */
+  margin-top: 0; /* Asegura que no haya un margen extraño por defecto si lo tuviera oculto */
+  opacity: 1 !important; /* Fuerza la opacidad si Bootstrap usa transiciones */
+  visibility: visible !important; /* Fuerza la visibilidad si Bootstrap usa esta propiedad */
 }
 
-/* Asegura que el texto también sea negro al pasar el ratón o enfocar */
-.dropdown-dark-text .dropdown-item:hover,
-.dropdown-dark-text .dropdown-item:focus {
-  color: black !important;
+/* Aplica el fondo negro y el borde al contenedor del desplegable (UL) */
+.dropdown-menu.dropdown-dark-text {
+  background-color: black !important; /* ¡Fondo negro FIJO para todo el menú! */
+  border: 1px solid #333; /* Borde sutil para definición */
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada para contraste */
 }
-/* --- ESTA ES LA REGLA CLAVE PARA LA ALTURA UNIFORME --- */
+
+/* Aplica el color de texto blanco a los elementos individuales del desplegable (Link/a) */
+.dropdown-menu.dropdown-dark-text .dropdown-item {
+  color: white !important; /* Letras blancas siempre */
+  background-color: transparent !important; /* MUY IMPORTANTE: Asegura que el ítem sea transparente para ver el fondo negro del UL */
+  padding: 12px 16px; /* Ajusta el padding si lo necesitas */
+}
+
+/* Estilos para los elementos del desplegable al pasar el ratón (hover) o al enfocarlos */
+.dropdown-menu.dropdown-dark-text .dropdown-item:hover,
+.dropdown-menu.dropdown-dark-text .dropdown-item:focus {
+  background-color: #333 !important; /* Un gris oscuro al pasar el ratón */
+  color: white !important; /* Asegura que las letras sigan blancas en hover */
+}
+
+/* --- ESTILOS DE GALERÍA Y OTROS (MANTENER) --- */
 .image-grid-thumbnail {
   width: 100%;
-  height: 170px; /* <--- VALOR CLAVE: Ajusta esta altura para el tamaño deseado */
-  object-fit: cover; /* <--- VALOR CLAVE: Recorta la imagen para que cubra el espacio */
-  display: block; /* Asegura que la imagen se comporte como un bloque */
-  /* Si la altura aún no se aplica, puedes probar con !important (aunque úsalo con precaución): */
-  /* height: 80px !important; */
+  height: 170px;
+  object-fit: cover;
+  display: block;
 }
 
-/* Otros estilos para el margen del contenedor o entre fotos si los usas */
-
-/* Si usas la opción de 'g-X' de Bootstrap para el margen entre fotos: */
-/* Asegúrate de que las reglas de .no-gutters estén eliminadas o comentadas si no las usas. */
-
-/* Si estás añadiendo margen al contenedor principal: */
 .gallery-container-margin {
-  /* Si usas una clase personalizada para el contenedor */
-  padding: 15px; /* Ajusta según tu preferencia */
+  padding: 15px;
 }
 .container-photo {
   margin-top: 60px !important;
 }
-
-/*
-   Asegúrate de que no queden estilos residuales del desplazamiento,
-   como .gallery-container, ni modificaciones específicas de z-index
-   para .navbar o .dropdown-menu que hubiéramos añadido para ese fin.
-   Si añadiste algo más allá de lo que tenías al principio, bórralo.
-*/

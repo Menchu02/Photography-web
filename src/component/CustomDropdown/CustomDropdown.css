@@ -1,0 +1,53 @@
+/* src/components/CustomDropdown/CustomDropdown.css */
+
+/* Contenedor del desplegable */
+.custom-dropdown-container {
+  position: relative; /* Necesario para posicionar el menú */
+  list-style: none; /* Quita el punto del li */
+}
+
+/* Estilo para el botón/enlace que abre el desplegable (ej. "WORK") */
+.custom-dropdown-toggle {
+  /* Tus estilos para "WORK" aquí. Asegúrate de que sea negro. */
+  color: black !important; /* Texto negro */
+  cursor: pointer;
+  padding: 10px 15px; /* Ajusta el padding si es necesario */
+  /* Puedes añadir estilos para la flecha de toggle aquí si usas CSS para ella */
+}
+
+/* Estilos del menú desplegable (UL) */
+.custom-dropdown-menu {
+  position: absolute;
+  top: 100%; /* Justo debajo del toggle */
+  left: 0;
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  min-width: 160px; /* Ancho mínimo */
+
+  /* --- ¡AQUÍ ESTÁ EL FONDO NEGRO FIJO! --- */
+  background-color: black !important; /* Fondo negro fijo */
+  border: 1px solid #333;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+  list-style: none; /* Quita los puntos de la lista */
+  padding: 0;
+  margin: 0; /* Asegura que no haya márgenes por defecto */
+}
+
+/* Estilos para los elementos individuales del desplegable (Link/a) */
+.custom-dropdown-item {
+  display: block; /* Para que ocupe todo el ancho */
+  padding: 12px 16px; /* Padding interno */
+  text-decoration: none; /* Quita el subrayado de los enlaces */
+  white-space: nowrap; /* Evita que el texto se rompa */
+  font-size: 16px;
+
+  /* --- ¡AQUÍ ESTÁN LAS LETRAS BLANCAS FIJAS! --- */
+  color: white !important; /* Letras blancas siempre */
+  background-color: transparent !important; /* Crucial para ver el fondo del padre */
+}
+
+/* Estilos al pasar el ratón por los elementos del desplegable */
+.custom-dropdown-item:hover,
+.custom-dropdown-item:focus {
+  background-color: #333 !important; /* Fondo gris oscuro en hover */
+  color: white !important; /* Letras blancas en hover */
+}
