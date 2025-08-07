@@ -1,0 +1,49 @@
+/* Contenedor principal del carrusel */
+.custom-carousel-container {
+  position: relative;
+  width: 100%;
+  height: 100%; /* Importante: Cambiar de 100vh a 100% para que ocupe el 100% de su padre (.carousel-container) */
+  overflow: hidden; /* Esconde las imágenes que están fuera de vista */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilo para cada imagen del carrusel */
+.carousel-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover; /* Asegura que la imagen cubra todo el espacio */
+  background-position: center; /* Centra la imagen */
+  /* Asegúrate de que no haya transiciones CSS aquí, Framer Motion las manejará */
+}
+
+/* Estilos opcionales para los botones de navegación */
+.next,
+.prev {
+  top: 50%;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  border-radius: 50%; /* Botones circulares */
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 30px;
+  color: #fff;
+  z-index: 10;
+  user-select: none;
+  transform: translateY(-50%); /* Centrar verticalmente */
+}
+
+.next {
+  right: 20px;
+  transform: translateY(-50%) rotate(180deg); /* Flecha hacia la derecha */
+}
+
+.prev {
+  left: 20px;
+}

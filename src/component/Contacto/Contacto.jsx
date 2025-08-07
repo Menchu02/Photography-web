@@ -1,7 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import CustomDropdown from '../CustomDropdown/CustomDropdown';
 
 export default function Contacto() {
+  const workMenuItems = [
+    { label: 'MODELO', path: '/modelo' },
+    { label: 'STYLE LIFE', path: '/stylelife' },
+  ];
   return (
     <div className='page-container'>
       <nav className='navbar navbar-expand-md bg-light'>
@@ -14,37 +19,7 @@ export default function Contacto() {
                 HOME
               </Link>
             </li>
-
-            {/* Dropdown en lugar de accordion */}
-            <li className='nav-item dropdown'>
-              <a
-                className='nav-link dropdown-toggle text-black menu-item-text'
-                href='#'
-                id='navbarDropdown'
-                role='button'
-                data-bs-toggle='dropdown'
-                aria-expanded='false'
-              >
-                WORK
-              </a>
-              <ul className='dropdown-menu'>
-                <li>
-                  <Link className='dropdown-item' to='/modelo'>
-                    MODELO
-                  </Link>
-                </li>
-                <li>
-                  <Link className='dropdown-item' to='/stylelife'>
-                    STYLE LIFE
-                  </Link>
-                </li>
-                {/* <li>
-                  <Link className='dropdown-item' to='/influences'>
-                    Influences
-                  </Link>
-                </li> */}
-              </ul>
-            </li>
+            <CustomDropdown title='WORK' items={workMenuItems} />
 
             <li className='nav-item'>
               <Link

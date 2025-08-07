@@ -24,7 +24,12 @@ body {
 
 /* Aplica el fondo negro y el borde al contenedor del desplegable (UL) */
 .dropdown-menu.dropdown-dark-text {
-  background-color: black !important; /* ¡Fondo negro FIJO para todo el menú! */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.428
+  ) !important; /* ¡Fondo negro FIJO para todo el menú! */
   border: 1px solid #333; /* Borde sutil para definición */
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada para contraste */
 }

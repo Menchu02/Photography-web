@@ -1,31 +1,32 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
-import photo1 from '../img/14.jpg';
-import photo2 from '../img/23.jpg';
-import photo3 from '../img/87.jpg';
-import photo4 from '../img/9.jpg';
+// import photo1 from '../img/14.jpg';
+// import photo2 from '../img/23.jpg';
+// import photo3 from '../img/87.jpg';
+// import photo4 from '../img/9.jpg';
+import CustomCarousel from '../CustomCarousel/CustomCarousel';
 
-import ReactImageGallery from 'react-image-gallery';
-import 'react-image-gallery/styles/css/image-gallery.css';
+// import ReactImageGallery from 'react-image-gallery';
+// import 'react-image-gallery/styles/css/image-gallery.css';
 import { Link } from 'react-router-dom';
 
 import './navBar.css';
 
 export default function NavBar() {
-  const images = [
-    {
-      original: photo1,
-    },
-    {
-      original: photo2,
-    },
-    {
-      original: photo3,
-    },
-    {
-      original: photo4,
-    },
-  ];
+  // const images = [
+  //   {
+  //     original: photo1,
+  //   },
+  //   {
+  //     original: photo2,
+  //   },
+  //   {
+  //     original: photo3,
+  //   },
+  //   {
+  //     original: photo4,
+  //   },
+  // ];
   return (
     <div>
       <nav className='navbar -md bg-light navbar-dark'>
@@ -92,17 +93,7 @@ export default function NavBar() {
         </div>
       </nav>
       <div className='carousel-container'>
-        <ReactImageGallery
-          items={images}
-          showPlayButton={false}
-          showThumbnails={false}
-          showNav={false}
-          showBullets={false}
-          autoPlay={true}
-          slideDuration={500}
-          slideInterval={2000}
-          additionalClass='mi-carrusel-personalizado'
-        />
+        <CustomCarousel />
         <div className='overlay-text'>
           <h1 className='animated-title'>Jesús Coll</h1>
         </div>

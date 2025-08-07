@@ -1,77 +1,97 @@
-/* --- ESTILOS GENERALES DE LA BARRA DE NAVEGACIÓN --- */
+/* 1. Eliminamos los márgenes y rellenos predeterminados de la página */
+#root,
+.App {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden; /* Evita que aparezca una barra de desplazamiento horizontal */
+  /* Importante: Asegúrate de que no haya ningún estilo global en index.css o App.css que sobrescriba esto */
+}
 
-/* Asegura que los enlaces no tengan subrayado ni sombras inesperadas por defecto */
+/* 2. Aseguramos que el contenedor principal del carrusel ocupe toda la pantalla */
+.carousel-container {
+  width: 100vw; /* 100% del ancho de la ventana */
+  height: 100vh; /* 100% del alto de la ventana */
+  margin: 0; /* Aseguramos que no haya margen */
+  padding: 0; /* Aseguramos que no haya padding */
+  box-sizing: border-box; /* Para que el padding no afecte el tamaño total */
+  position: relative; /* Necesario para el overlay-text */
+}
+
+/* 3. Aseguramos que la barra de navegación no empuje el carrusel y anule el padding de Bootstrap */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Asegura que la barra esté siempre por encima */
+  background-color: transparent !important; /* Mantenemos el fondo transparente */
+  padding-left: 0 !important; /* Anula el padding de Bootstrap en la navbar */
+  padding-right: 0 !important; /* Anula el padding de Bootstrap en la navbar */
+}
+
+/* Anulamos el padding del container-fluid dentro de la navbar para los márgenes laterales */
+.navbar .container-fluid {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important; /* Aseguramos que no haya margen */
+  margin-right: 0 !important; /* Aseguramos que no haya margen */
+  width: 100% !important; /* Aseguramos que ocupe el 100% del ancho de la navbar */
+}
+
+/* --- ESTILOS GENERALES DE LA BARRA DE NAVEGACIÓN --- */
 a {
   border-bottom: none !important;
   box-shadow: none !important;
   text-shadow: none !important;
 }
 
-/* --- SOLUCIÓN PARA EL DESPLAZAMIENTO DEL MENÚ DESPLEGABLE --- */
-/* 1. Asegura que el elemento padre del desplegable (.nav-item.dropdown) tenga posicionamiento relativo.
-   Esto es crucial para que el menú desplegable (.dropdown-menu) se posicione de forma absoluta dentro de él. */
+/* SOLUCIÓN PARA EL DESPLAZAMIENTO DEL MENÚ DESPLEGABLE */
 .navbar-nav .nav-item.dropdown {
   position: relative;
-  /* Elimina cualquier margen o padding vertical en este contenedor que pudiera causar el salto */
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
 }
 
-/* 2. Aplica posicionamiento absoluto al menú desplegable para que flote.
-   Esto lo saca del flujo normal del documento, evitando que empuje otros elementos. */
 .navbar-nav .nav-item.dropdown .dropdown-menu {
-  position: absolute !important; /* Fuerza el posicionamiento absoluto */
-  top: 100%; /* Coloca el borde superior del menú desplegable justo debajo del enlace "WORK" */
-  left: 50%; /* Alinea el centro del desplegable con el centro del enlace "WORK" */
-  transform: translateX(-50%); /* Ajuste para centrarlo perfectamente */
-  z-index: 1050; /* Asegura que el menú siempre esté por encima de otros elementos */
-
-  /* Estilos para la transparencia y bordes del menú desplegable */
+  position: absolute !important;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1050;
   background-color: transparent !important;
   border: none !important;
   box-shadow: none !important;
   --bs-dropdown-bg: transparent !important;
   --bs-dropdown-border-color: transparent !important;
   --bs-dropdown-box-shadow: none !important;
-
-  /* Pequeño ajuste de padding-top para que no esté pegado al enlace "WORK" */
   padding-top: 5px;
-  /* Puedes ajustar el min-width si las opciones del menú son más anchas que "WORK" */
-  /* min-width: 150px; */
 }
 
-/* Estilos para los elementos individuales del desplegable (Modelo, Style life) */
 .nav-item.dropdown .dropdown-menu .dropdown-item {
-  background-color: transparent !important; /* Asegura que cada item también sea transparente */
-  color: white !important; /* Asegura que el texto sea blanco */
+  background-color: transparent !important;
+  color: white !important;
 }
 
-/* Estilos al pasar el ratón o enfocar en los elementos del desplegable */
 .navbar-dark .dropdown-menu .dropdown-item:hover,
 .navbar-dark .dropdown-menu .dropdown-item:focus {
   color: white !important;
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.2
-  ) !important; /* Un ligero fondo semitransparente blanco al pasar el ratón */
+  background-color: rgba(255, 255, 255, 0.2) !important;
 }
 
-/* --- ESTILOS DE LA BARRA DE NAVEGACIÓN PRINCIPAL --- */
+/* ESTILOS DE LA BARRA DE NAVEGACIÓN PRINCIPAL */
 .nav-link {
   border-bottom: none !important;
   box-shadow: none !important;
   text-shadow: none !important;
-}
-
-.navbar {
-  background-color: transparent !important; /* Barra de navegación transparente */
-  position: fixed; /* Fija la barra en la parte superior */
-  top: 0;
-  left: 0;
-  width: 100%; /* Asegura que la barra ocupe todo el ancho */
-  z-index: 10; /* Establece un z-index alto para la barra de navegación */
 }
 
 .navbar-collapse {
@@ -81,29 +101,25 @@ a {
 
 .navbar-nav {
   font-size: 30px;
-  width: 100%; /* Hace que navbar-nav ocupe todo el ancho de su padre */
-  justify-content: space-between !important; /* Distribuye los elementos uniformemente */
+  width: 100%;
+  justify-content: space-between !important;
 }
 
-/* Estilos para los enlaces principales (HOME, WORK, CONTACT) */
 .navbar-collapse .navbar-nav .nav-item .nav-link {
-  text-decoration: none !important; /* Fuerza quitar el subrayado */
-  color: white !important; /* Fuerza el color blanco */
+  text-decoration: none !important;
+  color: white !important;
 }
 
-/* Estilos para los enlaces principales en estado hover y focus */
 .navbar-collapse .navbar-nav .nav-item .nav-link:hover,
 .navbar-collapse .navbar-nav .nav-item .nav-link:focus {
   text-decoration: none !important;
   color: white !important;
 }
 
-/* Asegura el color blanco para el elemento 'Home' si tiene la clase 'active' */
 .navbar-collapse .navbar-nav .nav-item .nav-link.active {
   color: white !important;
 }
 
-/* Por si acaso, si 'text-blanck' añade un color que lo sobreescribe */
 .navbar-collapse .navbar-nav .nav-item .nav-link.text-blanck {
   color: white !important;
 }
@@ -113,8 +129,7 @@ a {
   font-weight: bold;
 }
 
-/* --- ESTILOS PARA HACER TOTALMENTE TRANSPARENTE EL ACORDEÓN "WORKS" (si fuera un acordeón en vez de dropdown) --- */
-/* Aunque tu código indica un dropdown, estas reglas son para un acordeón transparente, las mantengo por si las usas */
+/* ESTILOS PARA HACER TOTALMENTE TRANSPARENTE EL ACORDEÓN "WORKS" (si fuera un acordeón en vez de dropdown) */
 .accordion-transparent {
   background-color: transparent !important;
   border: none !important;
@@ -159,8 +174,9 @@ a {
   border-radius: 0 !important;
 }
 
-/* --- ESTILOS DEL CARRUSEL (ReactImageGallery) --- */
-.carousel-inner {
+/* ESTILOS DEL CARRUSEL (ReactImageGallery) - Estas reglas son antiguas y no se usarán con CustomCarousel */
+/* Las mantengo comentadas por si las necesitas de referencia, pero no deberían afectar */
+/* .carousel-inner {
   overflow: hidden;
   height: 100vh;
 }
@@ -171,7 +187,7 @@ a {
   object-fit: cover;
   object-position: center;
   display: block;
-}
+} */
 
 .linksStyle {
   text-decoration: none;
@@ -179,10 +195,6 @@ a {
 
 .text {
   color: white !important;
-}
-
-.carousel-container {
-  position: relative;
 }
 
 .overlay-text {

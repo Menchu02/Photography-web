@@ -143,7 +143,7 @@ export default function Galeria() {
         <img
           src={currentGalleryImages[currentImageIndex]} // Usa el array de imágenes correcto
           alt={`${category} ${currentImageIndex + 1}`}
-          className='carousel-image'
+          className='carousel-imagen'
         />
         <button
           onClick={() => goTo(currentImageIndex + 1)}
