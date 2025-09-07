@@ -1,9 +1,5 @@
 import React from 'react';
-import { useState, useEffect, useRef } from 'react';
-// import photo1 from '../img/14.jpg';
-// import photo2 from '../img/23.jpg';
-// import photo3 from '../img/87.jpg';
-// import photo4 from '../img/9.jpg';
+
 import CustomCarousel from '../CustomCarousel/CustomCarousel';
 
 // import ReactImageGallery from 'react-image-gallery';
@@ -13,23 +9,9 @@ import { Link } from 'react-router-dom';
 import './navBar.css';
 
 export default function NavBar() {
-  // const images = [
-  //   {
-  //     original: photo1,
-  //   },
-  //   {
-  //     original: photo2,
-  //   },
-  //   {
-  //     original: photo3,
-  //   },
-  //   {
-  //     original: photo4,
-  //   },
-  // ];
   return (
     <div>
-      <nav className='navbar -md bg-light navbar-dark'>
+      <nav className='navbar navbar-expand-md bg-dark navbar-dark'>
         <div className='container-fluid'>
           {/* El navbar-brand también debe ser blanco */}
           <a className='navbar-brand text-white' href='#'></a>
@@ -54,13 +36,8 @@ export default function NavBar() {
               >
                 WORK
               </a>
-              {/* Los elementos del dropdown-menu por defecto son oscuros si el fondo es claro.
-                  Si necesitas que el texto del dropdown-item sea blanco en un fondo oscuro,
-                  necesitarías aplicar 'dropdown-menu-dark' o CSS personalizado.
-                  Por ahora, asumimos que el dropdown se abre sobre un fondo que permite el texto negro por defecto.
-                  Si quieres que el dropdown tenga fondo oscuro y texto blanco, usa 'dropdown-menu-dark'.
-              */}
-              <ul className='dropdown-menu '>
+
+              <ul className=' dropdown-menu dropdown-menu-dark'>
                 {' '}
                 {/* Puedes añadir 'dropdown-menu-dark' aquí si quieres fondo oscuro para el dropdown */}
                 <li>
@@ -73,11 +50,6 @@ export default function NavBar() {
                     STYLE LIFE
                   </Link>
                 </li>
-                {/* <li>
-                  <Link className='dropdown-item' to='/influences'>
-                    Influences
-                  </Link>
-                </li> */}
               </ul>
             </li>
 

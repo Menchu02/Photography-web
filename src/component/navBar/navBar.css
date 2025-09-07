@@ -1,247 +1,53 @@
-/* 1. Eliminamos los márgenes y rellenos predeterminados de la página */
-#root,
-.App {
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-}
-html,
-body {
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow-x: hidden; /* Evita que aparezca una barra de desplazamiento horizontal */
-  /* Importante: Asegúrate de que no haya ningún estilo global en index.css o App.css que sobrescriba esto */
-}
-
-/* 2. Aseguramos que el contenedor principal del carrusel ocupe toda la pantalla */
-.carousel-container {
-  width: 100vw; /* 100% del ancho de la ventana */
-  height: 100vh; /* 100% del alto de la ventana */
-  margin: 0; /* Aseguramos que no haya margen */
-  padding: 0; /* Aseguramos que no haya padding */
-  box-sizing: border-box; /* Para que el padding no afecte el tamaño total */
-  position: relative; /* Necesario para el overlay-text */
-}
-
-/* 3. Aseguramos que la barra de navegación no empuje el carrusel y anule el padding de Bootstrap */
+/* NAVBAR transparente y fijo arriba */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000; /* Asegura que la barra esté siempre por encima */
-  background-color: transparent !important; /* Mantenemos el fondo transparente */
-  padding-left: 0 !important; /* Anula el padding de Bootstrap en la navbar */
-  padding-right: 0 !important; /* Anula el padding de Bootstrap en la navbar */
-}
-
-/* Anulamos el padding del container-fluid dentro de la navbar para los márgenes laterales */
-.navbar .container-fluid {
+  z-index: 1000;
+  background-color: transparent !important; /* transparente */
   padding-left: 0 !important;
   padding-right: 0 !important;
-  margin-left: 0 !important; /* Aseguramos que no haya margen */
-  margin-right: 0 !important; /* Aseguramos que no haya margen */
-  width: 100% !important; /* Aseguramos que ocupe el 100% del ancho de la navbar */
 }
-
-/* --- ESTILOS GENERALES DE LA BARRA DE NAVEGACIÓN --- */
-a {
-  border-bottom: none !important;
-  box-shadow: none !important;
-  text-shadow: none !important;
-}
-
-/* SOLUCIÓN PARA EL DESPLAZAMIENTO DEL MENÚ DESPLEGABLE */
-.navbar-nav .nav-item.dropdown {
-  position: relative;
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-.navbar-nav .nav-item.dropdown .dropdown-menu {
-  position: absolute !important;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1050;
-  background-color: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  --bs-dropdown-bg: transparent !important;
-  --bs-dropdown-border-color: transparent !important;
-  --bs-dropdown-box-shadow: none !important;
-  padding-top: 5px;
-}
-
-.nav-item.dropdown .dropdown-menu .dropdown-item {
-  background-color: transparent !important;
-  color: white !important;
-}
-
-.navbar-dark .dropdown-menu .dropdown-item:hover,
-.navbar-dark .dropdown-menu .dropdown-item:focus {
-  color: white !important;
-  background-color: rgba(255, 255, 255, 0.2) !important;
-}
-
-/* ESTILOS DE LA BARRA DE NAVEGACIÓN PRINCIPAL */
-.nav-link {
-  border-bottom: none !important;
-  box-shadow: none !important;
-  text-shadow: none !important;
-}
-
-.navbar-collapse {
-  align-items: center;
-  justify-content: space-between;
-}
-
+/* Aseguramos que los elementos del navbar ocupen todo el ancho */
 .navbar-nav {
-  font-size: 30px;
   width: 100%;
+  display: flex;
   justify-content: space-between !important;
 }
 
-.navbar-collapse .navbar-nav .nav-item .nav-link {
-  text-decoration: none !important;
-  color: white !important;
+/* Links principales en negro */
+.navbar .nav-link {
+  color: black !important;
 }
 
-.navbar-collapse .navbar-nav .nav-item .nav-link:hover,
-.navbar-collapse .navbar-nav .nav-item .nav-link:focus {
-  text-decoration: none !important;
-  color: white !important;
+/* Hover (puedes dejarlo en negro o darle un gris para contraste) */
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+  color: black !important;
 }
 
-.navbar-collapse .navbar-nav .nav-item .nav-link.active {
-  color: white !important;
-}
-
-.navbar-collapse .navbar-nav .nav-item .nav-link.text-blanck {
-  color: white !important;
-}
-
-.menu-item-text {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-/* ESTILOS PARA HACER TOTALMENTE TRANSPARENTE EL ACORDEÓN "WORKS" (si fuera un acordeón en vez de dropdown) */
-.accordion-transparent {
-  background-color: transparent !important;
-  border: none !important;
-}
-
-.accordion-transparent .accordion-button {
-  background-color: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  color: white !important;
-  padding: 0 !important;
-  font-size: 30px !important;
-  text-align: left !important;
-  outline: none !important;
-}
-
-.accordion-transparent .accordion-button:not(.collapsed) {
-  background-color: transparent !important;
-  color: white !important;
-  box-shadow: none !important;
-}
-
-.accordion-transparent .accordion-button::after {
-  filter: brightness(0) invert(1) !important;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
-}
-
-.accordion-transparent .accordion-body {
+/* Dropdown transparente */
+.dropdown-menu {
   background-color: transparent !important;
   border: none !important;
   box-shadow: none !important;
 }
 
-.accordion-transparent .accordion-body p,
-.accordion-transparent .accordion-body a {
-  color: white !important;
-  text-decoration: none !important;
-}
-
-.accordion-header {
+/* Items del dropdown en negro */
+.dropdown-menu .dropdown-item {
+  color: black !important;
   background-color: transparent !important;
-  border-radius: 0 !important;
 }
 
-/* ESTILOS DEL CARRUSEL (ReactImageGallery) - Estas reglas son antiguas y no se usarán con CustomCarousel */
-/* Las mantengo comentadas por si las necesitas de referencia, pero no deberían afectar */
-/* .carousel-inner {
-  overflow: hidden;
-  height: 100vh;
-}
-
-.img-carousel {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-} */
-
-.linksStyle {
-  text-decoration: none;
-}
-
-.text {
-  color: white !important;
-}
-
-.overlay-text {
-  position: absolute;
-  bottom: 8px;
-  left: 20px;
-  z-index: 10;
-}
-
-.overlay-text h1 {
-  color: white;
-  font-size: 9.5rem;
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold;
-  letter-spacing: -0.07em;
-  margin: 0;
-  line-height: 1;
-}
-
-.animated-title {
-  opacity: 0;
-  transform: scale(0.8);
-  animation: fadeZoomIn 1.2s ease-out 1s forwards;
-}
-
-@keyframes fadeZoomIn {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Media queries para el texto del overlay */
-@media screen and (max-width: 992px) {
-  .overlay-text h1 {
-    font-size: 6rem;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .overlay-text h1 {
-    font-size: 4.5rem;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .overlay-text h1 {
-    font-size: 3rem;
-  }
+/* Hover del dropdown */
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item:focus {
+  color: black !important;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.1
+  ) !important; /* leve sombreado para distinguir */
 }

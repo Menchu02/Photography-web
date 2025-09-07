@@ -24,9 +24,7 @@
   min-width: 160px; /* Ancho mínimo */
 
   /* --- ¡AQUÍ ESTÁ EL FONDO NEGRO FIJO! --- */
-  background-color: black !important; /* Fondo negro fijo */
-  border: 1px solid #333;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+
   list-style: none; /* Quita los puntos de la lista */
   padding: 0;
   margin: 0; /* Asegura que no haya márgenes por defecto */
@@ -37,17 +35,17 @@
   display: block; /* Para que ocupe todo el ancho */
   padding: 12px 16px; /* Padding interno */
   text-decoration: none; /* Quita el subrayado de los enlaces */
-  white-space: nowrap; /* Evita que el texto se rompa */
+  /* Evita que el texto se rompa */
   font-size: 16px;
+  font-family: 'Roboto', sans-serif;
 
   /* --- ¡AQUÍ ESTÁN LAS LETRAS BLANCAS FIJAS! --- */
-  color: white !important; /* Letras blancas siempre */
+  color: rgb(13, 13, 13) !important; /* Letras blancas siempre */
   background-color: transparent !important; /* Crucial para ver el fondo del padre */
 }
 
 /* Estilos al pasar el ratón por los elementos del desplegable */
 .custom-dropdown-item:hover,
 .custom-dropdown-item:focus {
-  background-color: #333 !important; /* Fondo gris oscuro en hover */
-  color: white !important; /* Letras blancas en hover */
+  background-color: #66626218 !important; /* Fondo gris oscuro en hover */
 }

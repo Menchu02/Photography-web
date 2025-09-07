@@ -11,41 +11,35 @@ body {
   /* color: black !important;  <-- Descomentar si 'text-black' no es suficiente */
 }
 
-/* --- ESTILOS DEL DESPLEGABLE "WORK" (FONDO NEGRO, LETRAS BLANCAS) --- */
+/* --- ESTILOS DEL DESPLEGABLE "WORK" (FONDO TRANSPARENTE, LETRAS NEGRAS) --- */
 
-/* MUY IMPORTANTE: Asegúrate de que el desplegable esté siempre visible cuando se renderiza (si no está oculto por defecto por Bootstrap) */
-/* La clase 'show' de Bootstrap lo hace visible, pero si hay otras reglas que lo ocultan, esta lo fuerza */
+/* Aseguramos que el desplegable se muestre correctamente */
 .dropdown-menu.show {
-  display: block !important; /* Fuerza la visibilidad del desplegable */
-  margin-top: 0; /* Asegura que no haya un margen extraño por defecto si lo tuviera oculto */
-  opacity: 1 !important; /* Fuerza la opacidad si Bootstrap usa transiciones */
-  visibility: visible !important; /* Fuerza la visibilidad si Bootstrap usa esta propiedad */
+  display: block !important;
+  margin-top: 0;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
-/* Aplica el fondo negro y el borde al contenedor del desplegable (UL) */
-.dropdown-menu.dropdown-dark-text {
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.428
-  ) !important; /* ¡Fondo negro FIJO para todo el menú! */
-  border: 1px solid #333; /* Borde sutil para definición */
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada para contraste */
+/* Fondo transparente y sin borde */
+.dropdown-menu {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
-/* Aplica el color de texto blanco a los elementos individuales del desplegable (Link/a) */
-.dropdown-menu.dropdown-dark-text .dropdown-item {
-  color: white !important; /* Letras blancas siempre */
-  background-color: transparent !important; /* MUY IMPORTANTE: Asegura que el ítem sea transparente para ver el fondo negro del UL */
-  padding: 12px 16px; /* Ajusta el padding si lo necesitas */
+/* Letras negras en los items */
+.dropdown-menu .dropdown-item {
+  color: black !important;
+  background-color: transparent !important;
+  padding: 12px 16px;
 }
 
-/* Estilos para los elementos del desplegable al pasar el ratón (hover) o al enfocarlos */
-.dropdown-menu.dropdown-dark-text .dropdown-item:hover,
-.dropdown-menu.dropdown-dark-text .dropdown-item:focus {
-  background-color: #333 !important; /* Un gris oscuro al pasar el ratón */
-  color: white !important; /* Asegura que las letras sigan blancas en hover */
+/* Hover: fondo gris claro, texto negro */
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item:focus {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  color: black !important;
 }
 
 /* --- ESTILOS DE GALERÍA Y OTROS (MANTENER) --- */
@@ -59,6 +53,7 @@ body {
 .gallery-container-margin {
   padding: 15px;
 }
+
 .container-photo {
   margin-top: 60px !important;
 }
