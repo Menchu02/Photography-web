@@ -1,17 +1,17 @@
 // src/components/CustomDropdown/CustomDropdown.js
-import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom'; // Si tus ítems son Link
-import './CustomDropdown.css'; // Crearemos este CSS ahora
+import React, { useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import './CustomDropdown.css';
 
-const CustomDropdown = ({ title, items }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef(null); // Para detectar clics fuera
+const CustomDropdown = ({ title, items, isOpen, setIsOpen }) => {
+  const dropdownRef = useRef(null);
 
-  const toggleDropdown = () => {
+  const toggleDropdown = (e) => {
+    e.preventDefault();
     setIsOpen(!isOpen);
   };
 
-  // Cierra el desplegable si se hace clic fuera de él
+  // Cierra el desplegable si se hace clic fuera
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -20,15 +20,13 @@ const CustomDropdown = ({ title, items }) => {
     };
 
     document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [setIsOpen]);
 
   return (
     <li className='custom-dropdown-container' ref={dropdownRef}>
       <a
-        className='custom-dropdown-toggle menu-item-text' // Usamos tu clase de texto si quieres que sea negra
+        className='custom-dropdown-toggle menu-item-text'
         href='#'
         onClick={toggleDropdown}
         aria-haspopup='true'

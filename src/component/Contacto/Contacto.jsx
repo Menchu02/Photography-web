@@ -1,42 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import CustomDropdown from '../CustomDropdown/CustomDropdown';
+
+// import CustomDropdown from '../CustomDropdown/CustomDropdown';
+import photo1 from '..//img/99.jpg';
+import Navegador from '../Navegador/Navegador';
+import './contacto.css';
 
 export default function Contacto() {
-  const workMenuItems = [
-    { label: 'MODELO', path: '/modelo' },
-    { label: 'STYLE LIFE', path: '/stylelife' },
-  ];
+  // const workMenuItems = [
+  //   { label: 'MODELO', path: '/modelo' },
+  //   { label: 'STYLE LIFE', path: '/stylelife' },
+  // ];
   return (
     <div className='page-container'>
-      <nav className='navbar navbar-expand-md bg-light'>
-        <div className='container-fluid'>
-          <a className='navbar-brand text-black' href='#'></a>
-
-          <ul className='navbar-nav d-flex flex-row flex-wrap justify-content-center align-items-center w-100 gap-3'>
-            <li className='nav-item'>
-              <Link className='nav-link text-black menu-item-text' to='/'>
-                HOME
-              </Link>
-            </li>
-            <CustomDropdown title='WORK' items={workMenuItems} />
-
-            <li className='nav-item'>
-              <Link
-                className='nav-link text-black menu-item-text'
-                to='/contacto'
-              >
-                CONTACT
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      {/* <footer className='footer'>
-        <p>email</p>
-        <p>telefono</p>
-        <p>redes sociales</p>
-      </footer> */}
+      <Navegador />
+      <div className='background-photo-container'>
+        <img src={photo1} alt='background' className='background-photo' />
+        <h1 className='anime-contact'>CONTACT</h1>
+      </div>
+      <footer className='footer-items '>
+        <h1>collgallardo@gmail.com</h1>
+        <h1>+34 613 000 875</h1>
+        <h1>Barcelona</h1>
+      </footer>
     </div>
   );
 }

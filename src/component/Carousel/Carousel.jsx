@@ -27,15 +27,6 @@ export default function Carousel() {
         margin: '0px',
         objectFit: 'cover',
       }}
-    >
-      {/* <ReactImageGallery
-        items={images}
-        showPlayButton={false}
-        showThumbnails={false}
-        showNav={false}
-        showBullets={true}
-        autoPlay={true}
-      /> */}
-    </div>
+    ></div>
   );
 }

@@ -1,210 +1,175 @@
 .page-container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.footer {
-  align-self: flex-start; /* lo deja alineado a la izquierda */
-  margin: 20px;
-  color: white; /* o el color que quieras */
-}
-/* --- ESTILOS GENERALES DE LA BARRA DE NAVEGACIÓN --- */
-/* HE CAMBIADO TODO A NEGRO PARA QUE SE VEA EN NEGRO LAS LETRAS */
-a {
-  border-bottom: none !important;
-  box-shadow: none !important;
-  text-shadow: none !important; /* Si fuera una sombra de texto rara */
-}
-
-/* También para los nav-links, por si acaso */
-.nav-link {
-  border-bottom: none !important;
-  box-shadow: none !important;
-  text-shadow: none !important;
-}
-.navbar {
-  background-color: transparent !important; /* Asegura que la barra de navegación sea transparente */
-  position: fixed; /* Fija la barra de navegación en la parte superior de la ventana */
-  top: 0;
-  left: 0;
-  width: 100%; /* Asegúrate de que la barra de navegación se extienda por todo el ancho */
-  z-index: 10; /* Establece un z-index alto para la barra de navegación */
-}
-
-.navbar-collapse {
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* --- CAMBIO CLAVE PARA OCUPAR TODO EL ANCHO --- */
-.navbar-nav {
-  font-size: 30px;
-  /* font-weight: bold; */
-  width: 100%; /* Hace que navbar-nav ocupe todo el ancho de su padre */
-  justify-content: space-between !important; /* Distribuye los elementos uniformemente con espacio alrededor de ellos */
-  /* Alternativa: justify-content: space-between !important;
-     Si quieres que "Home", "Works" y "Contacto" estén exactamente en los extremos y luego espaciados uniformemente,
-     pero 'space-around' suele ser bueno para una distribución general. */
-}
-
-/* --- SOLUCIÓN ULTRA ESPECÍFICA PARA QUITAR EL SUBRAYADO Y COLOR AZUL DE "HOME" Y "CONTACTO" --- */
-/* Apuntamos directamente a los enlaces nav-link dentro del nav-item y navbar-nav */
-.navbar-collapse .navbar-nav .nav-item .nav-link {
-  text-decoration: none !important; /* FUERZA QUITAR EL SUBRAYADO */
-  color: black !important; /* FUERZA EL COLOR BLANCO */
-}
-
-/* También para los estados hover y focus */
-.navbar-collapse .navbar-nav .nav-item .nav-link:hover,
-.navbar-collapse .navbar-nav .nav-item .nav-link:focus {
-  text-decoration: none !important; /* QUITA EL SUBRAYADO EN HOVER Y FOCUS */
-  color: black !important; /* MANTIENE EL COLOR BLANCO EN HOVER Y FOCUS */
-}
-
-/* Aseguramos el color blanco para el elemento 'Home' que tiene 'active' */
-.navbar-collapse .navbar-nav .nav-item .nav-link.active {
-  color: black !important;
-}
-
-/* Por si acaso, si 'text-blanck' añade un color que lo sobreescribe, lo forzamos a blanco */
-.navbar-collapse .navbar-nav .nav-item .nav-link.text-blanck {
-  color: black !important;
-}
-
-/* --- ESTILOS PARA HACER TOTALMENTE TRANSPARENTE EL ACORDEÓN "WORKS" --- */
-/* Estilos para el elemento del acordeón transparente (contenedor del "Works") */
-.accordion-transparent {
-  background-color: transparent !important;
-  border: none !important;
-}
-
-/* Estilos para el botón del acordeón (el texto "Works" que se pincha) */
-.accordion-transparent .accordion-button {
-  background-color: transparent !important; /* Fondo completamente transparente */
-  border: none !important; /* Quita los bordes */
-  box-shadow: none !important; /* Elimina cualquier sombra */
-  color: black !important; /* Asegura que el color del texto sea blanco */
-  padding: 0 !important; /* Elimina el relleno (espacio alrededor del texto) */
-  font-size: 30px !important; /* Mantiene el tamaño de fuente deseado */
-  /* font-weight: bold !important;  */
-  text-align: left !important; /* Alinea el texto a la izquierda */
-  outline: none !important; /* Elimina el contorno que aparece al enfocar (clic o tab) */
-}
-
-/* Estilos para el botón del acordeón cuando está expandido (abierto) */
-.accordion-transparent .accordion-button:not(.collapsed) {
-  background-color: transparent !important; /* Mantiene transparente cuando está abierto */
-  color: black !important;
-  box-shadow: none !important;
-}
-
-/* Estilos para el icono de la flecha del botón del acordeón */
-.accordion-transparent .accordion-button::after {
-  filter: brightness(0) invert(1) !important; /* Hace que la flecha sea blanca */
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
-}
-
-/* Estilos para el contenido dentro del cuerpo del acordeón (el desplegable) */
-.accordion-transparent .accordion-body {
-  background-color: transparent !important; /* Fondo completamente transparente */
-  border: none !important; /* Quita los bordes */
-  box-shadow: none !important; /* Elimina cualquier sombra */
-}
-
-/* Estilos para los párrafos y enlaces dentro del cuerpo del acordeón (Modelo, Style life, Influences) */
-.accordion-transparent .accordion-body p,
-.accordion-transparent .accordion-body a {
-  color: black !important; /* Asegura que el color del texto sea blanco */
-  text-decoration: none !important; /* Elimina el subrayado de los enlaces */
-}
-
-/* --- OTROS ESTILOS RELACIONADOS --- */
-.carousel-inner {
-  overflow: hidden;
   height: 100vh;
 }
+/* .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: transparent !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+} */
 
-.img-carousel {
+/* .navbar-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between !important;
+} */
+
+/* .navbar .nav-link {
+  color: black !important;
+} */
+
+/* Hover (puedes dejarlo en negro o darle un gris para contraste) */
+/* .navbar .nav-link:hover,
+.navbar .nav-link:focus {
+  color: black !important;
+} */
+
+/* Dropdown transparente */
+/* .dropdown-menu {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+} */
+/* .navbar .dropdown-menu {
+  position: absolute !important; 
+  top: 100%;
+  left: 0; 
+  margin-top: 0.5rem;
+  background-color: black;
+  z-index: 2000;
+} */
+
+/* .dropdown-menu .dropdown-item {
+  color: black !important;
+  background-color: transparent !important;
+  padding: 0.3rem 1rem; 
+  font-size: 0.95rem; 
+  line-height: 1.2; 
+} */
+
+/* .dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item:focus {
+  color: black !important;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.1
+  ) !important; 
+} */
+/* Contenedor para la imagen de fondo */
+
+.background-photo-container {
+  position: absolute; /* O 'fixed' para que no se mueva al hacer scroll */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  overflow: hidden; /* Oculta cualquier parte de la imagen que se desborde */
+}
+
+.background-photo-container img {
+  width: 100%; /* La imagen ocupa todo el ancho */
+  /* La altura se ajusta automáticamente para mantener la proporción */
+  object-fit: cover; /* Recorta la imagen para que llene el contenedor sin distorsionarse */
+}
+
+/* Estilos para el Navbar */
+.navbar {
+  /* Usamos fixed-top para que se mantenga fijo en la parte superior */
+  position: fixed;
+  width: 100%;
+  z-index: 1000; /* Asegura que el navbar esté por encima de la foto */
+  top: 0;
+  background-color: transparent !important; /* Hazlo transparente para que se vea la foto */
+}
+
+.background-photo-container {
+  position: relative; /* referencia para el h1 */
+  width: 100%;
+
+  overflow: hidden;
+}
+
+.background-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
-  display: block;
 }
 
-.linksStyle {
-  text-decoration: none; /* Asegura que los enlaces no tengan subrayado por defecto */
+/* Animación igual a la de Jesús Coll */
+@keyframes slideUpFade {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.text {
-  color: black !important; /* Asegura que los elementos de texto específicos sean blancos */
-}
-
-.accordion-header {
-  background-color: transparent !important; /* Asegura que el encabezado del acordeón sea transparente */
-  border-radius: 0 !important; /* Elimina cualquier borde redondeado */
-}
-.carousel-container {
-  position: relative;
-}
-
-.overlay-text {
+.anime-contact {
   position: absolute;
   bottom: 20px;
   left: 20px;
-  z-index: 10;
-}
-
-.overlay-text h1 {
-  color: black;
-  font-size: clamp(4rem, 6vw, 35rem);
-
+  color: white;
+  font-size: 9rem;
+  font-weight: bold;
+  letter-spacing: -6px;
   margin: 0;
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
-}
-.animated-title {
+  z-index: 10;
   opacity: 0;
-  transform: scale(0.8);
-  animation: fadeZoomIn 1.2s ease-out 1s forwards;
+  animation: slideUpFade 1s ease-out forwards;
+  animation-delay: 0, 5ms; /* espera 2 segundos antes de aparecer */
 }
-.menu-item-text {
+.footer-items {
+  padding: 35px;
+  position: relative;
+}
+.footer-items h1 {
   font-size: 20px;
-  font-weight: 500;
+  font-weight: bold;
+  margin: 0;
+  opacity: 0; /* Oculta los elementos al inicio */
+  animation: slideUpFade 1s ease-out forwards;
+}
+.footer-items h1:nth-of-type(1) {
+  animation-delay: 1s; /* Empieza después del CONTACT h1 */
 }
 
-@keyframes fadeZoomIn {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+.footer-items h1:nth-of-type(2) {
+  animation-delay: 1.2s; /* 0.2 segundos después del primero */
 }
-.navbar-nav .nav-link,
-.navbar-brand,
-.dropdown-toggle {
-  font-size: 1.2rem !important; /* Tamaño base para pantallas grandes */
+
+.footer-items h1:nth-of-type(3) {
+  animation-delay: 1.4s; /* 0.2 segundos después del segundo */
+}
+
+@media (max-width: 992px) {
+  .anime-contact {
+    font-size: 6rem; /* Se reduce para pantallas de laptops y tabletas */
+    bottom: 15px;
+    left: 15px;
+  }
 }
 
 @media (max-width: 768px) {
-  .navbar-nav .nav-link,
-  .navbar-brand,
-  .dropdown-toggle {
-    font-size: 1rem !important; /* Tablets */
+  .anime-contact {
+    font-size: 6rem; /* Se reduce aún más para tabletas y móviles */
+    bottom: 10px;
+    left: 10px;
   }
 }
 
 @media (max-width: 576px) {
-  .navbar-nav .nav-link,
-  .navbar-brand,
-  .dropdown-toggle {
-    font-size: 0.9rem !important; /* Móviles */
-  }
-}
-
-@media (max-width: 400px) {
-  .navbar-nav .nav-link,
-  .navbar-brand,
-  .dropdown-toggle {
-    font-size: 0.8rem !important; /* Móviles muy pequeños */
+  .anime-contact {
+    font-size: 4rem; /* Tamaño ideal para la mayoría de los móviles */
+    bottom: 5px;
+    left: 5px;
   }
 }

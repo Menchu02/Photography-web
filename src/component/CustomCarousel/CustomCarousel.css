@@ -7,6 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: black; /* <-- evita el flash blanco */
 }
 
 /* Estilo para cada imagen del carrusel */
@@ -14,9 +15,11 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background-size: cover; /* Asegura que la imagen cubra todo el espacio */
-  background-position: center; /* Centra la imagen */
-  /* Asegúrate de que no haya transiciones CSS aquí, Framer Motion las manejará */
+  background-size: cover;
+  background-position: center;
+  /* background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; */
 }
 
 /* Estilos opcionales para los botones de navegación */

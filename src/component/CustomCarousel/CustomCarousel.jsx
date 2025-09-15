@@ -1,12 +1,16 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './CustomCarousel.css'; // Crearemos este archivo CSS en el siguiente paso
-import photo1 from '../img/14.jpg';
-import photo2 from '../img/23.jpg';
-import photo3 from '../img/87.jpg';
-import photo4 from '../img/9.jpg';
+// import photo1 from '../img/14.jpg';
+// import photo2 from '../img/23.jpg';
+import photo1 from '../img/2.jpg';
+import photo2 from '../img/7.jpg';
+import photo3 from '../img/9.jpg';
+import photo4 from '../img/23.jpg';
+import photo5 from '../img/35.jpg';
 
-const images = [photo1, photo2, photo3, photo4];
+// const images = [photo1, photo2, photo3, photo4];
+const images = [photo1, photo2, photo3, photo4, photo5];
 
 // Define las variantes de animación para Framer Motion
 const variants = {
@@ -35,7 +39,7 @@ const variants = {
       zIndex: 0,
       // La imagen sale hacia la izquierda (-100%) o derecha (100%)
       x: direction < 0 ? '100%' : '-100%',
-      opacity: 0,
+      opacity: 0.3,
       transition: {
         duration: 1.5, // Misma duración para la salida
         ease: [0.25, 1, 0.5, 1], // Misma función de temporización

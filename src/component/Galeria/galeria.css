@@ -9,7 +9,7 @@
 }
 .gallery-index-button {
   position: absolute;
-  top: 5px; /* Ajusta la distancia desde arriba */
+  top: 5px;
   right: 10px; /* Ajusta la distancia desde la derecha */
   z-index: 10; /* Asegura que esté por encima de la imagen y las flechas */
   background-color: white;
@@ -50,4 +50,10 @@
 }
 .carousel-fullscreen {
   margin-bottom: 20px;
+}
+/* Ocultar flechas en móviles y tablets */
+@media (max-width: 1024px) {
+  .carousel-arrow {
+    display: none !important;
+  }
 }

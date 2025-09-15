@@ -16,7 +16,7 @@ body {
 /* Aseguramos que el desplegable se muestre correctamente */
 .dropdown-menu.show {
   display: block !important;
-  margin-top: 0;
+  margin-top: -10px;
   opacity: 1 !important;
   visibility: visible !important;
 }
@@ -32,7 +32,7 @@ body {
 .dropdown-menu .dropdown-item {
   color: black !important;
   background-color: transparent !important;
-  padding: 12px 16px;
+  /* padding: 12px 16px; */
 }
 
 /* Hover: fondo gris claro, texto negro */
@@ -56,4 +56,12 @@ body {
 
 .container-photo {
   margin-top: 60px !important;
+}
+.galeria-wrapper {
+  transition: margin-top 0.4s ease;
+  margin-top: 0;
+}
+
+.galeria-wrapper.shifted {
+  margin-top: 120px; /* ajusta según la altura del menú desplegable */
 }

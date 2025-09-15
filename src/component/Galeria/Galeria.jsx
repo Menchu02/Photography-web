@@ -1,45 +1,48 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import './galeria.css'; // Si quieres estilos personalizados
+import './galeria.css';
 
-// --- DEFINICIÓN CENTRAL DE LAS IMÁGENES POR GALERÍA ---
-// Es crucial que esta definición sea precisa y refleje tus estructuras de carpetas
-// Aquí recopilamos todas las rutas de imágenes para cada categoría.
 const allGalleriesImages = {
   modelo: Array.from(
-    { length: 152 }, // Asegúrate de que este conteo sea correcto para Modelo
+    { length: 152 },
     (_, i) => `/assets/stylelife/modelo/${i + 1}.jpg`
   ),
   stylelife: Array.from(
-    { length: 84 }, // Asegúrate de que este conteo sea correcto para StyleLife
+    { length: 84 },
     (_, i) => `/assets/stylelife/${i + 1}.jpg`
   ),
-  // Añade Influences si también tiene una galería y la quieres integrar aquí
-  influences: Array.from(
-    { length: 100 }, // Cambia 100 por el número real de imágenes de Influences
-    (_, i) => `/assets/influences/${i + 1}.jpg` // Asegúrate de que esta ruta sea correcta
+  brand: Array.from(
+    { length: 34 },
+    (_, i) => `/assets/stylelife/brand/${i + 1}.jpg`
   ),
 };
 
 export default function Galeria() {
-  // --- CAMBIO CLAVE: Ahora obtenemos 'category' y 'index' ---
   const { category, index } = useParams();
   const navigate = useNavigate();
 
-  // Estados para manejar la imagen actual y el conjunto de imágenes de la galería
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [currentGalleryImages, setCurrentGalleryImages] = useState([]);
-  const [imageCount, setImageCount] = useState(0); // Nuevo estado para la cantidad de imágenes de la galería actual
+  const [imageCount, setImageCount] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // useEffect para actualizar la galería cuando cambian los parámetros de la URL
+  // Estados para swipe
+  const [touchStartX, setTouchStartX] = useState(0);
+  const [touchEndX, setTouchEndX] = useState(0);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 1024);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   useEffect(() => {
     if (allGalleriesImages[category]) {
-      // Selecciona el array de imágenes correcto según la categoría
       const imagesForCategory = allGalleriesImages[category];
       setCurrentGalleryImages(imagesForCategory);
       setImageCount(imagesForCategory.length);
 
-      // Asegúrate de que el índice es un número válido y dentro de los límites
       const parsedIndex = parseInt(index, 10);
       if (
         !isNaN(parsedIndex) &&
@@ -48,109 +51,97 @@ export default function Galeria() {
       ) {
         setCurrentImageIndex(parsedIndex);
       } else {
-        // Si el índice no es válido, podrías redirigir o mostrar un error
-        console.warn(
-          `Índice de imagen no válido para la categoría ${category}: ${index}. Redirigiendo a la primera imagen.`
-        );
-        navigate(`/galeria/${category}/0`); // Redirige a la primera imagen si el índice es inválido
+        navigate(`/galeria/${category}/0`);
       }
     } else {
-      // Si la categoría no existe, redirigir a Home o mostrar un error
-      console.error(`Categoría de galería no encontrada: ${category}`);
-      navigate('/'); // Redirige al inicio o a una página de error
+      navigate('/');
     }
-  }, [category, index, navigate]); // Dependencias: se ejecuta cuando category o index cambian
+  }, [category, index, navigate]);
 
   const goTo = (newIndex) => {
-    // La navegación ahora incluye la categoría
     if (newIndex >= 0 && newIndex < imageCount) {
       navigate(`/galeria/${category}/${newIndex}`);
     } else if (newIndex < 0) {
-      // Si llegamos al principio, ir al final (bucle)
       navigate(`/galeria/${category}/${imageCount - 1}`);
     } else {
-      // Si llegamos al final, ir al principio (bucle)
       navigate(`/galeria/${category}/0`);
     }
   };
 
-  // Si no tenemos imágenes o el índice actual no es válido (ej. primera carga)
+  // Click en la imagen (solo móvil)
+  const handleImageClick = (e) => {
+    if (!isMobile) return;
+    const { clientX } = e;
+    const { left, width } = e.target.getBoundingClientRect();
+    const clickX = clientX - left;
+    if (clickX < width / 2) {
+      goTo(currentImageIndex - 1);
+    } else {
+      goTo(currentImageIndex + 1);
+    }
+  };
+
+  // Swipe con el dedo
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEndX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!isMobile) return;
+    if (touchStartX - touchEndX > 50) {
+      // swipe izquierda → siguiente
+      goTo(currentImageIndex + 1);
+    }
+    if (touchEndX - touchStartX > 50) {
+      // swipe derecha → anterior
+      goTo(currentImageIndex - 1);
+    }
+    setTouchStartX(0);
+    setTouchEndX(0);
+  };
+
   if (!currentGalleryImages.length || currentImageIndex === undefined) {
-    return <div>Cargando imagen...</div>; // O un spinner/mensaje de carga
+    return <div>Cargando imagen...</div>;
   }
 
   return (
     <div>
-      {/* Navegación superior (la misma que tenías) */}
-      {/* <nav className='navbar navbar-expand-md bg-light'>
-        <div className='container-fluid'>
-          <a className='navbar-brand text-black' href='#'></a>
-          <ul className='navbar-nav d-flex flex-row flex-wrap justify-content-center align-items-center w-100 gap-3'>
-            <li className='nav-item'>
-              <Link className='nav-link text-black' to='/'>
-                Home
-              </Link>
-            </li>
-            <li className='nav-item dropdown'>
-              <a
-                className='nav-link dropdown-toggle text-black'
-                href='#'
-                id='navbarDropdown'
-                role='button'
-                data-bs-toggle='dropdown'
-                aria-expanded='false'
-              >
-                Works
-              </a>
-              <ul className='dropdown-menu'>
-                <li>
-                  <Link className='dropdown-item' to='/modelo'>
-                    Modelo
-                  </Link>
-                </li>
-                <li>
-                  <Link className='dropdown-item' to='/stylelife'>
-                    Style life
-                  </Link>
-                </li>
-                <li>
-                  <Link className='dropdown-item' to='/influences'>
-                    Influences
-                  </Link>
-                </li>
-              </ul>
-            </li>
-            <li className='nav-item'>
-              <Link className='nav-link text-black' to='/contacto'>
-                Contacto
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </nav> */}
-
-      {/* Visor de la imagen central */}
       <div className='carousel-fullscreen container'>
         <Link to={`/${category}`} className='btn btn-dark gallery-index-button'>
           Index
         </Link>
-        <button
-          onClick={() => goTo(currentImageIndex - 1)}
-          className='carousel-arrow left'
-        >
-          ←
-        </button>
+
+        {!isMobile && (
+          <button
+            onClick={() => goTo(currentImageIndex - 1)}
+            className='carousel-arrow left'
+          >
+            ←
+          </button>
+        )}
+
         <img
-          src={currentGalleryImages[currentImageIndex]} // Usa el array de imágenes correcto
+          src={currentGalleryImages[currentImageIndex]}
           alt={`${category} ${currentImageIndex + 1}`}
           className='carousel-imagen'
+          onClick={handleImageClick}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         />
-        <button
-          onClick={() => goTo(currentImageIndex + 1)}
-          className='carousel-arrow right'
-        >
-          →
-        </button>
+
+        {!isMobile && (
+          <button
+            onClick={() => goTo(currentImageIndex + 1)}
+            className='carousel-arrow right'
+          >
+            →
+          </button>
+        )}
       </div>
     </div>
   );

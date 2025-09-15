@@ -8,7 +8,7 @@ import NavBar from './component/navBar/NavBar';
 import Contacto from './component/Contacto/Contacto';
 
 import StyleLife from './component/Style life/StyleLife';
-
+import Brand from './component/Brand/Brand';
 import Modelo from './component/Modelo/Modelo';
 import Influences from './component/Influences/Influences';
 import Galeria from './component/Galeria/Galeria';
@@ -24,6 +24,7 @@ function App() {
         <Route path='/contacto' element={<Contacto />}></Route>
 
         <Route path='/modelo' element={<Modelo />}></Route>
+        <Route path='/brand' element={<Brand />}></Route>
 
         <Route path='/stylelife' element={<StyleLife />}></Route>
 
