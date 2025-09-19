@@ -69,17 +69,17 @@ export default function Galeria() {
   };
 
   // Click en la imagen (solo móvil)
-  const handleImageClick = (e) => {
-    if (!isMobile) return;
-    const { clientX } = e;
-    const { left, width } = e.target.getBoundingClientRect();
-    const clickX = clientX - left;
-    if (clickX < width / 2) {
-      goTo(currentImageIndex - 1);
-    } else {
-      goTo(currentImageIndex + 1);
-    }
-  };
+  // const handleImageClick = (e) => {
+  //   if (!isMobile) return;
+  //   const { clientX } = e;
+  //   const { left, width } = e.target.getBoundingClientRect();
+  //   const clickX = clientX - left;
+  //   if (clickX < width / 2) {
+  //     goTo(currentImageIndex - 1);
+  //   } else {
+  //     goTo(currentImageIndex + 1);
+  //   }
+  // };
 
   // Swipe con el dedo
   const handleTouchStart = (e) => {
@@ -128,7 +128,7 @@ export default function Galeria() {
           src={currentGalleryImages[currentImageIndex]}
           alt={`${category} ${currentImageIndex + 1}`}
           className='carousel-imagen'
-          onClick={handleImageClick}
+          // onClick={handleImageClick}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}

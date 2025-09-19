@@ -79,8 +79,9 @@
 .animated-title {
   color: white;
   font-size: 9rem;
-  /* font-weight: bold; */
+
   margin: 0;
+
   letter-spacing: -6px;
   opacity: 0;
   animation: slideUpFade 1s ease-out forwards;
@@ -99,7 +100,7 @@
 
 @media (max-width: 480px) {
   .overlay-text {
-    bottom: 10px;
+    top: 650px;
     right: 10px;
   }
   .animated-title {
