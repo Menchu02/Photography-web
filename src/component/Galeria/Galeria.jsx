@@ -112,7 +112,7 @@ export default function Galeria() {
     <div>
       <div className='carousel-fullscreen container'>
         <Link to={`/${category}`} className='btn btn-dark gallery-index-button'>
-          Index
+          Indexx
         </Link>
 
         {!isMobile && (
