@@ -3,14 +3,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 import './CustomCarousel.css'; // Crearemos este archivo CSS en el siguiente paso
 // import photo1 from '../img/14.jpg';
 // import photo2 from '../img/23.jpg';
-import photo1 from '../img/2.jpg';
-import photo2 from '../img/7.jpg';
-import photo3 from '../img/9.jpg';
-import photo4 from '../img/23.jpg';
-import photo5 from '../img/35.jpg';
+import photo1 from '../img/1.jpg';
+import photo2 from '../img/2.jpg';
+import photo3 from '../img/3.jpg';
+import photo4 from '../img/4.jpg';
+import photo5 from '../img/5.jpg';
+import photo6 from '../img/6.jpg';
 
 // const images = [photo1, photo2, photo3, photo4];
-const images = [photo1, photo2, photo3, photo4, photo5];
+const images = [photo1, photo2, photo3, photo4, photo5, photo6];
 
 // Define las variantes de animación para Framer Motion
 const variants = {
