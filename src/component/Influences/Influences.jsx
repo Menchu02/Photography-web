@@ -15,7 +15,6 @@ export default function Influences() {
               </Link>
             </li>
 
-            {/* Dropdown en lugar de accordion */}
             <li className='nav-item dropdown'>
               <a
                 className='nav-link dropdown-toggle text-black'

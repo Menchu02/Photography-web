@@ -1,95 +1,33 @@
 .page-container {
   height: 100vh;
 }
-/* .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  background-color: transparent !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-} */
 
-/* .navbar-nav {
-  width: 100%;
-  display: flex;
-  justify-content: space-between !important;
-} */
-
-/* .navbar .nav-link {
-  color: black !important;
-} */
-
-/* Hover (puedes dejarlo en negro o darle un gris para contraste) */
-/* .navbar .nav-link:hover,
-.navbar .nav-link:focus {
-  color: black !important;
-} */
-
-/* Dropdown transparente */
-/* .dropdown-menu {
-  background-color: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-} */
-/* .navbar .dropdown-menu {
-  position: absolute !important; 
-  top: 100%;
-  left: 0; 
-  margin-top: 0.5rem;
-  background-color: black;
-  z-index: 2000;
-} */
-
-/* .dropdown-menu .dropdown-item {
-  color: black !important;
-  background-color: transparent !important;
-  padding: 0.3rem 1rem; 
-  font-size: 0.95rem; 
-  line-height: 1.2; 
-} */
-
-/* .dropdown-menu .dropdown-item:hover,
-.dropdown-menu .dropdown-item:focus {
-  color: black !important;
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.1
-  ) !important; 
-} */
 /* Contenedor para la imagen de fondo */
 
 .background-photo-container {
-  position: absolute; /* O 'fixed' para que no se mueva al hacer scroll */
-  top: 0;
+  position: absolute;
   left: 0;
   width: 100%;
   height: 80%;
-  overflow: hidden; /* Oculta cualquier parte de la imagen que se desborde */
+  overflow: hidden;
 }
 
 .background-photo-container img {
-  width: 100%; /* La imagen ocupa todo el ancho */
-  /* La altura se ajusta automáticamente para mantener la proporción */
-  object-fit: cover; /* Recorta la imagen para que llene el contenedor sin distorsionarse */
+  width: 100%;
+  object-fit: cover;
 }
 
 /* Estilos para el Navbar */
 .navbar {
-  /* Usamos fixed-top para que se mantenga fijo en la parte superior */
   position: fixed;
   width: 100%;
-  z-index: 1000; /* Asegura que el navbar esté por encima de la foto */
+  z-index: 1000;
   top: 0;
-  background-color: transparent !important; /* Hazlo transparente para que se vea la foto */
+  background-color: transparent !important;
 }
 
 .background-photo-container {
-  position: relative; /* referencia para el h1 */
+  position: relative;
   width: 100%;
 
   overflow: hidden;
@@ -101,7 +39,7 @@
   object-fit: cover;
 }
 
-/* Animación igual a la de Jesús Coll */
+/* Animación  */
 @keyframes slideUpFade {
   0% {
     opacity: 0;
@@ -125,7 +63,7 @@
   z-index: 10;
   opacity: 0;
   animation: slideUpFade 1s ease-out forwards;
-  animation-delay: 0, 5ms; /* espera 2 segundos antes de aparecer */
+  animation-delay: 0, 5ms;
 }
 .footer-items {
   padding: 35px;
@@ -135,24 +73,24 @@
   font-size: 20px;
   font-weight: bold;
   margin: 0;
-  opacity: 0; /* Oculta los elementos al inicio */
+  opacity: 0;
   animation: slideUpFade 1s ease-out forwards;
 }
 .footer-items h1:nth-of-type(1) {
-  animation-delay: 1s; /* Empieza después del CONTACT h1 */
+  animation-delay: 1s;
 }
 
 .footer-items h1:nth-of-type(2) {
-  animation-delay: 1.2s; /* 0.2 segundos después del primero */
+  animation-delay: 1.2s;
 }
 
 .footer-items h1:nth-of-type(3) {
-  animation-delay: 1.4s; /* 0.2 segundos después del segundo */
+  animation-delay: 1.4s;
 }
 
 @media (max-width: 992px) {
   .anime-contact {
-    font-size: 6rem; /* Se reduce para pantallas de laptops y tabletas */
+    font-size: 6rem;
     bottom: 15px;
     left: 15px;
   }
@@ -160,7 +98,7 @@
 
 @media (max-width: 768px) {
   .anime-contact {
-    font-size: 6rem; /* Se reduce aún más para tabletas y móviles */
+    font-size: 6rem;
     bottom: 10px;
     left: 10px;
   }
@@ -168,7 +106,7 @@
 
 @media (max-width: 576px) {
   .anime-contact {
-    font-size: 4rem; /* Tamaño ideal para la mayoría de los móviles */
+    font-size: 4rem;
     bottom: 5px;
     left: 5px;
   }

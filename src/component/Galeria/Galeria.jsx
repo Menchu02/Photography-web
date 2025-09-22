@@ -68,19 +68,6 @@ export default function Galeria() {
     }
   };
 
-  // Click en la imagen (solo móvil)
-  // const handleImageClick = (e) => {
-  //   if (!isMobile) return;
-  //   const { clientX } = e;
-  //   const { left, width } = e.target.getBoundingClientRect();
-  //   const clickX = clientX - left;
-  //   if (clickX < width / 2) {
-  //     goTo(currentImageIndex - 1);
-  //   } else {
-  //     goTo(currentImageIndex + 1);
-  //   }
-  // };
-
   // Swipe con el dedo
   const handleTouchStart = (e) => {
     setTouchStartX(e.touches[0].clientX);
@@ -93,11 +80,10 @@ export default function Galeria() {
   const handleTouchEnd = () => {
     if (!isMobile) return;
     if (touchStartX - touchEndX > 50) {
-      // swipe izquierda → siguiente
       goTo(currentImageIndex + 1);
     }
     if (touchEndX - touchStartX > 50) {
-      // swipe derecha → anterior
+      // swipe derecha
       goTo(currentImageIndex - 1);
     }
     setTouchStartX(0);
@@ -112,7 +98,7 @@ export default function Galeria() {
     <div>
       <div className='carousel-fullscreen container'>
         <Link to={`/${category}`} className='btn btn-dark gallery-index-button'>
-          Indexx
+          Index
         </Link>
 
         {!isMobile && (
@@ -128,7 +114,6 @@ export default function Galeria() {
           src={currentGalleryImages[currentImageIndex]}
           alt={`${category} ${currentImageIndex + 1}`}
           className='carousel-imagen'
-          // onClick={handleImageClick}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}

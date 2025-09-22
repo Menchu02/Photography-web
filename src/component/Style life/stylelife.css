@@ -1,17 +1,13 @@
 /* --- ESTA ES LA REGLA CLAVE PARA LA ALTURA UNIFORME --- */
 .image-grid-thumbnail {
   width: 100%;
-  height: 170px; /* <--- VALOR CLAVE: Ajusta esta altura para el tamaño deseado */
-  object-fit: cover; /* <--- VALOR CLAVE: Recorta la imagen para que cubra el espacio */
-  display: block; /* Asegura que la imagen se comporte como un bloque */
-  /* Si la altura aún no se aplica, puedes probar con !important (aunque úsalo con precaución): */
-  /* height: 80px !important; */
+  height: 170px;
+  object-fit: cover;
+  display: block;
 }
 
-/* Si estás añadiendo margen al contenedor principal: */
 .gallery-container-margin {
-  /* Si usas una clase personalizada para el contenedor */
-  padding: 15px; /* Ajusta según tu preferencia */
+  padding: 15px;
 }
 .container-photo {
   margin-top: 60px !important;

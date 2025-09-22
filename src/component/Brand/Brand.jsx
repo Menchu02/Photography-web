@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './brand.css'; // Asegúrate de que este archivo CSS esté importado
+import './brand.css';
 import GaleriaMasonry from '../GaleriaMasonry/GaleriaMasonry';
 import Navegador from '../Navegador/Navegador';
 import CustomDropdown from '../CustomDropdown/CustomDropdown';

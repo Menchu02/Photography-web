@@ -1,4 +1,3 @@
-// src/components/GaleriaMasonry/GaleriaMasonry.jsx
 import React from 'react';
 import Masonry from 'react-masonry-css';
 import { Link } from 'react-router-dom';

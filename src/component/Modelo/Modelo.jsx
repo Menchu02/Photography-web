@@ -12,10 +12,10 @@ export default function Modelo() {
     { length: imageCount },
     (_, i) => `/assets/stylelife/modelo/${i + 1}.jpg`
   );
-  const workMenuItems = [
-    { label: 'MODELO', path: '/modelo' },
-    { label: 'STYLE LIFE', path: '/stylelife' },
-  ];
+  // const workMenuItems = [
+  //   { label: 'MODELO', path: '/modelo' },
+  //   { label: 'STYLE LIFE', path: '/stylelife' },
+  // ];
   return (
     <div>
       <Navegador />

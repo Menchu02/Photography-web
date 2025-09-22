@@ -1,4 +1,3 @@
-// src/components/CustomDropdown/CustomDropdown.js
 import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './CustomDropdown.css';
@@ -11,7 +10,6 @@ const CustomDropdown = ({ title, items, isOpen, setIsOpen }) => {
     setIsOpen(!isOpen);
   };
 
-  // Cierra el desplegable si se hace clic fuera
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {

@@ -1,51 +1,42 @@
-/* src/components/CustomDropdown/CustomDropdown.css */
-
 /* Contenedor del desplegable */
 .custom-dropdown-container {
-  position: relative; /* Necesario para posicionar el menú */
-  list-style: none; /* Quita el punto del li */
+  position: relative;
+  list-style: none;
 }
 
 /* Estilo para el botón/enlace que abre el desplegable (ej. "WORK") */
 .custom-dropdown-toggle {
-  /* Tus estilos para "WORK" aquí. Asegúrate de que sea negro. */
-  color: black !important; /* Texto negro */
+  color: black !important;
   cursor: pointer;
-  padding: 10px 15px; /* Ajusta el padding si es necesario */
-  /* Puedes añadir estilos para la flecha de toggle aquí si usas CSS para ella */
+  padding: 10px 15px;
 }
 
 /* Estilos del menú desplegable (UL) */
 .custom-dropdown-menu {
   position: absolute;
-  top: 100%; /* Justo debajo del toggle */
+  top: 100%;
   left: 0;
-  z-index: 1000; /* Asegura que esté por encima de otros elementos */
-  min-width: 160px; /* Ancho mínimo */
+  z-index: 1000;
+  min-width: 160px;
 
-  /* --- ¡AQUÍ ESTÁ EL FONDO NEGRO FIJO! --- */
-
-  list-style: none; /* Quita los puntos de la lista */
+  list-style: none;
   padding: 0;
-  margin: 0; /* Asegura que no haya márgenes por defecto */
+  margin: 0;
 }
 
-/* Estilos para los elementos individuales del desplegable (Link/a) */
 .custom-dropdown-item {
-  display: block; /* Para que ocupe todo el ancho */
-  padding: 12px 16px; /* Padding interno */
-  text-decoration: none; /* Quita el subrayado de los enlaces */
-  /* Evita que el texto se rompa */
+  display: block;
+  padding: 12px 16px;
+  text-decoration: none;
+
   font-size: 16px;
   font-family: 'Roboto', sans-serif;
 
-  /* --- ¡AQUÍ ESTÁN LAS LETRAS BLANCAS FIJAS! --- */
-  color: rgb(13, 13, 13) !important; /* Letras blancas siempre */
-  background-color: transparent !important; /* Crucial para ver el fondo del padre */
+  color: rgb(13, 13, 13) !important;
+  background-color: transparent !important;
 }
 
-/* Estilos al pasar el ratón por los elementos del desplegable */
 .custom-dropdown-item:hover,
 .custom-dropdown-item:focus {
-  background-color: #66626218 !important; /* Fondo gris oscuro en hover */
+  background-color: #66626218 !important;
 }

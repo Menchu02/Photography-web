@@ -1,15 +1,10 @@
 import React from 'react';
 
-// import CustomDropdown from '../CustomDropdown/CustomDropdown';
 import photo1 from '..//img/99.jpg';
 import Navegador from '../Navegador/Navegador';
 import './contacto.css';
 
 export default function Contacto() {
-  // const workMenuItems = [
-  //   { label: 'MODELO', path: '/modelo' },
-  //   { label: 'STYLE LIFE', path: '/stylelife' },
-  // ];
   return (
     <div className='page-container'>
       <Navegador />
